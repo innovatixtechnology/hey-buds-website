@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.heybuds-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  color: #0c0c13;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.heybuds-logo .heybuds-mark {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+.heybuds-logo span {
+  display: inline-block;
+}
+
+.footer-heybuds-logo {
+  color: #ffffff;
+  margin-bottom: 18px;
+}
