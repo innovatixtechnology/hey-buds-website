@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .heybuds-logo {
   display: inline-flex;
   align-items: center;
@@ -29,4 +33,260 @@
 .footer-heybuds-logo {
   color: #ffffff;
   margin-bottom: 18px;
+}
+
+.rts-accordion .accordion-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.heybuds-slider-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.heybuds-slider-dots button {
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(12, 12, 19, 0.25);
+  cursor: pointer;
+  padding: 0;
+}
+
+.heybuds-slider-dots button.active {
+  width: 28px;
+  border-radius: 999px;
+  background: #0c0c13;
+}
+
+.heybuds-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: none;
+  border: 0;
+  background: rgba(12, 12, 19, 0.45);
+  cursor: pointer;
+}
+
+.heybuds-overlay.show {
+  display: block;
+}
+
+.side-bar.at-offcanvas-2-area {
+  z-index: 100;
+}
+
+.side-bar.at-offcanvas-2-area .at-offcanvas-menu nav > ul > li {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-bar.at-offcanvas-2-area .at-offcanvas-menu nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.banner-chat-area .chat .content .text {
+  min-height: 24px;
+}
+
+.heybuds-animate {
+  opacity: 0;
+  transform: translate3d(0, 38px, 0);
+  transition:
+    opacity 0.78s ease,
+    transform 0.78s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--heybuds-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.heybuds-animate--left {
+  transform: translate3d(-42px, 0, 0);
+}
+
+.heybuds-animate--right {
+  transform: translate3d(42px, 0, 0);
+}
+
+.heybuds-animate--scale {
+  transform: scale(0.9);
+}
+
+.heybuds-animate.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.header-style-one {
+  animation: heybudsHeaderDrop 0.7s ease both;
+}
+
+.rts-banner-area-three .banner-hero img,
+.customer-left-image-area img,
+.left-image-area.ext-images > img {
+  animation: heybudsFloat 5.5s ease-in-out infinite;
+}
+
+.banner-chat-area .chat {
+  animation: heybudsChatFloat 3.8s ease-in-out infinite;
+}
+
+.banner-chat-area .chat.chat-two {
+  animation-delay: 0.7s;
+}
+
+.banner-chat-area .chat .content .text::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 3px;
+  background: currentColor;
+  vertical-align: -0.16em;
+  animation: heybudsCursorBlink 0.75s steps(1) infinite;
+}
+
+.bottom-brand-area ul {
+  animation: heybudsBrandDrift 18s linear infinite;
+}
+
+.feature-wrapper3,
+.service-wrapper2,
+.service-wrapper3,
+.pricing-wrapper,
+.blog-wrapper2,
+.working-process-wrapper {
+  transition:
+    opacity 0.78s ease,
+    transform 0.78s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease;
+}
+
+.feature-wrapper3:hover,
+.service-wrapper2:hover,
+.service-wrapper3:hover,
+.pricing-wrapper:hover,
+.blog-wrapper2:hover,
+.working-process-wrapper:hover {
+  transform: translate3d(0, -8px, 0);
+}
+
+.moving-img {
+  animation: heybudsSlowDrift 7s ease-in-out infinite;
+}
+
+.footer-shape-area img {
+  animation: heybudsSlowDrift 9s ease-in-out infinite;
+}
+
+.footer-shape-area img:nth-child(2) {
+  animation-delay: 1.4s;
+  animation-direction: reverse;
+}
+
+@keyframes heybudsHeaderDrop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -28px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heybudsFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes heybudsChatFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes heybudsCursorBlink {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes heybudsBrandDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(-18px, 0, 0);
+  }
+}
+
+@keyframes heybudsSlowDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(12px, -16px, 0) rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .heybuds-animate {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-title-area.d-flex {
+    align-items: flex-start !important;
+  }
+
+  .rts-pricing-area .section-title-area .right,
+  .rts-blog-area .section-title-area .right {
+    margin-top: 24px;
+  }
 }
