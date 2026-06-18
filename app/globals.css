@@ -35,6 +35,21 @@ html {
   margin-bottom: 18px;
 }
 
+.breadcrumb-logo .heybuds-logo {
+  min-height: 36px;
+  font-size: 18px;
+}
+
+.breadcrumb-logo .heybuds-logo .heybuds-mark {
+  width: 22px;
+  height: 22px;
+}
+
+.review-middle-area .heybuds-logo {
+  color: #ffffff;
+  justify-content: center;
+}
+
 .rts-accordion .accordion-button {
   appearance: none;
   background: transparent;
@@ -96,6 +111,62 @@ html {
 
 .banner-chat-area .chat .content .text {
   min-height: 24px;
+}
+
+.headline-word {
+  display: inline-block;
+  margin-right: 0.22em;
+  opacity: 0;
+  transform: translate3d(0, 34px, 0) rotateX(36deg);
+  transform-origin: 50% 100%;
+  animation: heybudsWordReveal 0.82s cubic-bezier(0.2, 0.86, 0.2, 1) forwards;
+  animation-delay: calc(var(--word-index) * 0.085s + 0.25s);
+}
+
+.headline-word:last-child {
+  margin-right: 0;
+}
+
+.inner-header {
+  top: 24px;
+}
+
+.inner-breadcrumb {
+  background-image: url("/assets/images/banner/banner-bg-02.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.inner-content-section .desc {
+  margin: 24px 0 32px;
+  max-width: 620px;
+}
+
+.inner-visual {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(12, 12, 19, 0.14);
+}
+
+.inner-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.compact-footer {
+  align-items: flex-start;
+}
+
+.service-static-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 0 40px;
+}
+
+.service-static-slide {
+  min-width: 0;
 }
 
 .heybuds-animate {
@@ -204,6 +275,13 @@ html {
   }
 }
 
+@keyframes heybudsWordReveal {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+  }
+}
+
 @keyframes heybudsFloat {
   0%,
   100% {
@@ -288,5 +366,18 @@ html {
   .rts-pricing-area .section-title-area .right,
   .rts-blog-area .section-title-area .right {
     margin-top: 24px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .service-static-grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .service-static-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
   }
 }
