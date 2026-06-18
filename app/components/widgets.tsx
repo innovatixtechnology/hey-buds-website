@@ -2,7 +2,7 @@ export const asset = (path: string) => `/assets/${path}`;
 
 export function Logo({ footer = false }: { footer?: boolean }) {
   return (
-    <a href="#home" className={`logo heybuds-logo${footer ? ' footer-heybuds-logo' : ''}`} aria-label="HeyBuds">
+    <a href="/" className={`logo heybuds-logo${footer ? ' footer-heybuds-logo' : ''}`} aria-label="HeyBuds">
       <img className="heybuds-mark" src={asset('images/logo/heybuds-mark.svg')} alt="" />
       <span>HEYBUDS</span>
     </a>

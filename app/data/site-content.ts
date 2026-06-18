@@ -1,10 +1,43 @@
+export const homeMenu = [
+  { label: 'Artificial Intelligence', href: '/' },
+  { label: 'AI Agency', href: '/' },
+  { label: 'AI Chatbot', href: '/' },
+  { label: 'Neural Network', href: '/' },
+  { label: 'AI SaaS', href: '/' },
+  { label: 'Machine Learning', href: '/' },
+  { label: 'Image Generator', href: '/' },
+  { label: 'Video Generator', href: '/' },
+  { label: 'AI Voice Generator', href: '/' },
+];
+
+export const pagesMenu = [
+  { label: 'Services', href: '/services', details: 'Discover the key feature.' },
+  { label: 'Services Details', href: '/services-details', details: 'Learn about additional tools.' },
+  { label: 'Pricing', href: '/pricing', details: 'Explore our flexible pricing plans.' },
+  { label: 'Team', href: '/team', details: 'Meet the people behind HeyBuds.' },
+  { label: 'Project', href: '/project', details: 'Connect with your favorite tools.' },
+  { label: 'Project Details', href: '/project-details', details: 'View full integration information.' },
+  { label: 'Blog', href: '/blog', details: 'Read our latest articles.' },
+  { label: 'Blog Details', href: '/blog-details', details: 'Explore the full blog post.' },
+  { label: 'FAQ', href: '/faq', details: 'Find answers to common questions.' },
+  { label: 'Gallery', href: '/gallery', details: 'Create your new account.' },
+  { label: 'Contact', href: '/contact', details: 'Get in touch with our team.' },
+  { label: 'Sign In', href: '/sign-in', details: 'Access your existing account.' },
+];
+
+export const blogMenu = [
+  { label: 'Blog one', href: '/blog' },
+  { label: 'Blog Two', href: '/blog-two' },
+  { label: 'Blog Three', href: '/blog-three' },
+  { label: 'Blog-Details', href: '/blog-details' },
+];
+
 export const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Service', href: '/services' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export const brandLogos = ['01-sm.svg', '02-sm.svg', '03-sm.svg', '04-sm.svg', '05-sm.svg'];
@@ -12,7 +45,7 @@ export const brandLogos = ['01-sm.svg', '02-sm.svg', '03-sm.svg', '04-sm.svg', '
 export const services = [
   {
     title: 'Multi-Language Communication',
-    desc: 'Break language barriers with AI-powered multilingual support.',
+    desc: 'Break language barriers with AI-powered by our multilingual support.',
     image: 'service/04.webp',
     width: 364,
   },

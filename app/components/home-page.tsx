@@ -1,7 +1,8 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import { blogs, brandLogos, faqs, features, navLinks, plans, services, steps, testimonials } from '../data/site-content';
+import type { CSSProperties } from 'react';
+import { blogMenu, blogs, brandLogos, faqs, features, homeMenu, navLinks, pagesMenu, plans, services, steps, testimonials } from '../data/site-content';
 import { useEntryAnimations } from '../hooks/use-entry-animations';
 import { ArrowIcon, Logo, SubTitle, asset } from './widgets';
 
@@ -30,17 +31,65 @@ export default function Home() {
                 </div>
                 <nav className="main-nav-area" aria-label="Primary">
                   <ul className="list-unstyled rts-desktop-menu">
-                    {navLinks.map((link) => (
-                      <li className="menu-item" key={link.href}>
-                        <a className="main-element without-arrow" href={link.href}>
-                          {link.label}
-                        </a>
-                      </li>
-                    ))}
+                    <li className="menu-item rts-has-dropdown">
+                      <a className="main-element rts-dropdown-main-element" href="/">
+                        Home
+                      </a>
+                      <ul className="rts-submenu">
+                        {homeMenu.map((link) => (
+                          <li className="nav-item" key={link.label}>
+                            <a className="nav-link" href={link.href}>
+                              {link.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/about">
+                        About
+                      </a>
+                    </li>
+                    <li className="menu-item rts-has-dropdown">
+                      <a className="main-element rts-dropdown-main-element" href="/services">
+                        Pages
+                      </a>
+                      <ul className="rts-submenu service-mega-menu-style">
+                        {pagesMenu.map((link) => (
+                          <li className="nav-item" key={link.href}>
+                            <a className="nav-link" href={link.href}>
+                              <span>
+                                <span className="title">{link.label}</span>
+                                <span className="details">{link.details}</span>
+                              </span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                    <li className="menu-item rts-has-dropdown">
+                      <a className="main-element rts-dropdown-main-element" href="/blog">
+                        Blog
+                      </a>
+                      <ul className="rts-submenu">
+                        {blogMenu.map((link) => (
+                          <li className="nav-item" key={link.label}>
+                            <a className="nav-link" href={link.href}>
+                              {link.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/contact">
+                        Contact
+                      </a>
+                    </li>
                   </ul>
                 </nav>
                 <div className="button-area-start">
-                  <a href="#contact" className="rts-btn btn-primary icon-next">
+                  <a href="/contact" className="rts-btn btn-primary icon-next">
                     Get In Touch
                     <ArrowIcon />
                   </a>
@@ -80,7 +129,11 @@ export default function Home() {
                     </ul>
                     <div className="section-title-area">
                       <h1 className="section-title">
-                        <span className="gradient-text">Chatbots</span> That Think Like Humans Work Like Machines.
+                        {['Chatbots', 'That', 'Think', 'Like', 'Humans', 'Work', 'Like', 'Machines.'].map((word, index) => (
+                          <span className="headline-word" style={{ '--word-index': index } as CSSProperties & { '--word-index': number }} key={`${word}-${index}`}>
+                            {index === 0 ? <span className="gradient-text">{word}</span> : word}
+                          </span>
+                        ))}
                       </h1>
                     </div>
                     <p className="desc">Harness the power of Artificial Intelligence to streamline processes, enhance decision making, and drive innovation.</p>
@@ -161,7 +214,7 @@ export default function Home() {
                       <div className="content-area">
                         <h3 className="title">Customer Support Automation</h3>
                         <p className="desc">
-                          Reduce response time and provide instant solutions 24/7. Our AI chatbots handle FAQs, complaints, and routine service so your team can focus on complex cases.
+                          Reduce response time and provide instant solutions 24/7. Our AI chatbots handle FAQs, complaints, and service can focus on complex cases.
                         </p>
                       </div>
                     </div>
@@ -594,7 +647,7 @@ export default function Home() {
           <div className="at-offcanvas-menu">
             <nav className="nav-main mainmenu-nav mt--30" aria-label="Mobile menu">
               <ul>
-                {navLinks.map((link) => (
+                {[...navLinks, ...pagesMenu.slice(1, 4)].map((link) => (
                   <li key={link.href}>
                     <a className="main" href={link.href} onClick={() => setMenuOpen(false)}>
                       {link.label}
