@@ -39,22 +39,10 @@ export default function Home() {
                         About
                       </a>
                     </li>
-                    <li className="menu-item rts-has-dropdown">
-                      <a className="main-element rts-dropdown-main-element" href="/services">
-                        Pages
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/services">
+                        Services
                       </a>
-                      <ul className="rts-submenu service-mega-menu-style">
-                        {pagesMenu.map((link) => (
-                          <li className="nav-item" key={link.href}>
-                            <a className="nav-link" href={link.href}>
-                              <span>
-                                <span className="title">{link.label}</span>
-                                <span className="details">{link.details}</span>
-                              </span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
                     </li>
                     <li className="menu-item">
                       <a className="main-element without-arrow" href="/blog">
@@ -127,8 +115,8 @@ export default function Home() {
                 </div>
                 <div className="col-lg-6">
                   <div className="right-content-area">
-                    <div className="banner-hero heybuds-hero-product">
-                      <img src={asset('images/heybuds/ai-employee-hero.png')} width="640" alt="Hey Buds AI employee automation dashboard" />
+                    <div className="banner-hero">
+                      <img src={asset('images/banner/02.webp')} width="640" alt="Smiling customer using Hey Buds AI chat support" />
                     </div>
                     <div className="banner-chat-area">
                       <div className="chat chat-one">
@@ -340,7 +328,7 @@ export default function Home() {
             <div className="section-title-area center-style">
               <SubTitle>Industries</SubTitle>
               <h2 className="section-title animated-title mb-0">
-                AI Employees for <span className="gradient-text">Every Business</span>
+                Industries <span className="gradient-text">We Serve</span>
               </h2>
             </div>
             <div className="section-inner mt--60">
@@ -358,27 +346,27 @@ export default function Home() {
                   <div className="row g-5">
                     <div className="col-12">
                       <div className="heybuds-industries-card">
-                        <h3>Industries We Serve</h3>
+                        {/* <h3>Industries We Serve</h3> */}
                         <ul>
-                          <li>
-                            <span aria-hidden="true">🍽️</span> Restaurants &amp; Cafés
-                          </li>
-                          <li>
-                            <span aria-hidden="true">🏥</span> Healthcare &amp; Clinics
-                          </li>
-                          <li>
-                            <span aria-hidden="true">🎓</span> Schools &amp; Educational Institutions
-                          </li>
-                          <li>
-                            <span aria-hidden="true">🏠</span> Real Estate
-                          </li>
-                          <li>
-                            <span aria-hidden="true">🛒</span> E-Commerce
-                          </li>
-                          <li>
-                            <span aria-hidden="true">💼</span> Service Businesses
-                          </li>
-                        </ul>
+                        <li>
+                          <span><i className="fa-solid fa-utensils" /></span> Restaurants &amp; Cafés
+                        </li>
+                        <li>
+                          <span><i className="fa-solid fa-stethoscope" /></span> Healthcare &amp; Clinics
+                        </li>
+                        <li>
+                          <span><i className="fa-solid fa-graduation-cap" /></span> Schools &amp; Educational Institutions
+                        </li>
+                        <li>
+                          <span><i className="fa-solid fa-building" /></span> Real Estate
+                        </li>
+                        <li>
+                          <span><i className="fa-solid fa-cart-shopping" /></span> E-Commerce
+                        </li>
+                        <li>
+                          <span><i className="fa-solid fa-briefcase" /></span> Service Businesses
+                        </li>
+                      </ul>
                       </div>
                     </div>
                     <div className="col-12">

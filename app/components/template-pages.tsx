@@ -31,32 +31,10 @@ function Header() {
                         About
                       </a>
                     </li>
-                    <li className="menu-item rts-has-dropdown">
-                      <a href="/services" className="rts-dropdown-main-element">
-                        Pages
+                    <li className="menu-item">
+                      <a href="/services" className="main-element without-arrow">
+                        Services
                       </a>
-                      <div className="rts-submenu rts-mega-menu service-mega-menu-style">
-                        <div className="wrapper">
-                          <div className="row g-5">
-                            {[pagesMenu.slice(0, 4), pagesMenu.slice(4, 8), pagesMenu.slice(8, 12)].map((column, columnIndex) => (
-                              <div className="col-lg-4" key={columnIndex}>
-                                <ul className="mega-menu-item parent-nav">
-                                  {column.map((link) => (
-                                    <li key={link.href}>
-                                      <a href={link.href}>
-                                        <span className="text">
-                                          <span className="title">{link.label}</span>
-                                          <span className="details">{link.details}</span>
-                                        </span>
-                                      </a>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
                     </li>
                     <li className="menu-item">
                       <a href="/blog" className="main-element without-arrow">
@@ -570,16 +548,8 @@ export function AboutTemplatePage() {
               </div>
               <div className="col-lg-6 order-1 order-lg-2">
                 <div className="about-four-visual">
-                  <div className="about-four-visual__frame d-block">
-                    <img className="w-100 scale-img-from-to" src={asset('images/about/05.webp')} alt="Neural network visualization" />
-                  </div>
-                  <div className="about-four-visual__stat">
-                    <div className="about-four-visual__stat-inner">
-                      <h3 className="about-four-visual__stat-title">
-                        <span className="counter">200</span>K+
-                      </h3>
-                      <p className="about-four-visual__stat-text">AI Solutions for our clients</p>
-                    </div>
+                  <div className="about-four-visual__frame about-four-visual__frame--banner d-block">
+                    <img className="w-100 scale-img-from-to" src={asset('images/heybuds/ai-employee-hero.png')} alt="Smiling customer using Hey Buds AI chat support" />
                   </div>
                 </div>
               </div>
@@ -605,31 +575,44 @@ export function AboutTemplatePage() {
           </div>
         </div>
       </section>
-      <section className="heybuds-mission-area rts-section-gap">
+      <section className="heybuds-mission-area heybuds-mission-area--process rts-section-gap">
         <div className="container">
-          <div className="row g-5 align-items-center">
-            <div className="col-xl-7">
-              <div className="heybuds-approach-list">
-                {steps.map(([tag, title, desc]) => (
-                  <div className="heybuds-approach-item" key={tag}>
-                    <span>{tag}</span>
-                    <div>
-                      <h3>{title}</h3>
-                      <p>{desc}</p>
+          <div className="working-process-wrapper-two bg-dark heybuds-approach-panel">
+            <div className="row g-5 align-items-start">
+              <div className="col-xl-6">
+                <div className="working-step-wrapper two heybuds-approach-list">
+                  {steps.map(([tag, title, desc], index) => (
+                    <div className="single-step heybuds-approach-item" style={{ '--step-index': index } as CSSProperties & { '--step-index': number }} key={tag}>
+                      <span className="number">{tag}</span>
+                      <div className="content">
+                        <h3 className="title">{title}</h3>
+                        <p className="desc">{desc}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+              <div className="col-xl-6">
+                <div className="section-title-area heybuds-approach-heading">
+                  <p className="sub-title">
+                    <img src={asset('images/icon/sub-icon.svg')} alt="" /> Our Approach
+                  </p>
+                  <h2 className="section-title animated-title mb-0">
+                    Building Smarter <br />
+                    <span className="gradient-text">Customer Experiences</span>
+                  </h2>
+                </div>
               </div>
             </div>
-            <div className="col-xl-5">
-              <div className="section-title-area">
-                <p className="sub-title">
-                  <img src={asset('images/icon/sub-icon.svg')} alt="" /> Our Approach
-                </p>
-                <h2 className="section-title animated-title mb-0">
-                  Building Smarter <span className="gradient-text">Customer Experiences</span>
-                </h2>
-              </div>
+            <div className="line">
+              <img src={asset('images/working-process/line-2.svg')} alt="" />
+            </div>
+            <div className="bg-blur-shape">
+              <div className="shape" />
+              <div className="shape" />
+            </div>
+            <div className="bg-dot-shape">
+              <img src={asset('images/working-process/bg-dot-2.webp')} alt="" />
             </div>
           </div>
         </div>

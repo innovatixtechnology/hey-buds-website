@@ -166,6 +166,258 @@ html {
   background: #ffffff;
 }
 
+.rts-about-area-four .about-four-visual__frame--banner {
+  min-height: 600px;
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 62% 24%, rgba(255, 255, 0, 0.12), transparent 34%),
+    radial-gradient(circle at 28% 72%, rgba(165, 62, 27, 0.1), transparent 32%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(245, 246, 239, 0.94));
+}
+
+.rts-about-area-four .about-four-visual__frame--banner img {
+  width: min(100%, 620px);
+  max-height: 660px;
+  object-fit: contain;
+  object-position: bottom center;
+  animation: heybudsFloat 5.5s ease-in-out infinite;
+}
+
+/* About page approach section - closer to original Techlix */
+.heybuds-mission-area--process {
+  padding: 36px 0 72px !important;
+  background: #ffffff !important;
+  overflow: hidden;
+}
+
+.heybuds-mission-area--process > .container {
+  max-width: 1570px !important;
+  width: 90% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.heybuds-approach-panel {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  min-height: 620px !important;
+  padding: 70px 82px 68px !important;
+  border-radius: 26px !important;
+  background:
+    radial-gradient(circle at 80% 18%, rgba(255, 255, 0, 0.04), transparent 26%),
+    radial-gradient(circle at 23% 20%, rgba(165, 62, 27, 0.08), transparent 28%),
+    #202426 !important;
+  box-shadow: 0 22px 60px rgba(12, 12, 19, 0.14) !important;
+}
+
+.heybuds-approach-panel .row {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* kill white card leak, but keep original step feel */
+.heybuds-approach-panel .single-step,
+.heybuds-approach-panel .heybuds-approach-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 46px !important;
+  width: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0;
+  transform: translate3d(-26px, 0, 0);
+  animation: heybudsStepIn 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--step-index) * 0.16s);
+}
+
+.heybuds-approach-panel .heybuds-approach-list {
+  display: block !important;
+  max-width: 610px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.heybuds-approach-panel .heybuds-approach-item + .heybuds-approach-item {
+  margin-top: 72px !important;
+}
+
+.heybuds-approach-panel .heybuds-approach-item .number {
+  flex: 0 0 112px !important;
+  width: 112px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 88px !important;
+  font-weight: 700 !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.06em !important;
+  color: transparent !important;
+  background: linear-gradient(180deg, #a53e1b 0%, #173998 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 0.7px rgba(255, 255, 255, 0.16) !important;
+}
+
+.heybuds-approach-panel .heybuds-approach-item .content {
+  margin-top: 14px !important;
+  padding: 0 !important;
+}
+
+.heybuds-approach-panel .heybuds-approach-item .title {
+  margin: 0 0 17px !important;
+  color: #ffffff !important;
+  font-size: 26px !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+}
+
+.heybuds-approach-panel .heybuds-approach-item .desc {
+  max-width: 500px !important;
+  margin: 0 !important;
+  color: #a7aabb !important;
+  font-size: 19px !important;
+  line-height: 1.65 !important;
+}
+
+.heybuds-approach-heading .section-title {
+  color: #ffffff !important;
+  font-size: clamp(28px, 2.6vw, 52px) !important;
+  line-height: 1.18 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.032em !important;
+}
+
+
+.heybuds-approach-heading .sub-title {
+  margin-bottom: 26px !important;
+  color: #b94d2b !important;
+}
+
+.heybuds-approach-heading .gradient-text {
+  background: linear-gradient(90deg, #d65b36 0%, #7e55db 52%, #1e4ec9 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* dotted shape: smaller + still animated */
+.heybuds-approach-panel .bg-dot-shape {
+  position: absolute !important;
+  top: auto !important;
+  left: auto !important;
+  width: 780px !important;    
+  max-width: 58% !important;    
+  opacity: 0.36 !important;
+  filter: grayscale(1) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  animation: heybudsWaveDrift 9s ease-in-out infinite !important;
+  transition: right 0.35s ease, bottom 0.35s ease, opacity 0.35s ease;
+  will-change: transform;
+}
+
+.heybuds-approach-panel:hover .bg-dot-shape {
+  right: -42px !important;
+  bottom: -105px !important;
+  opacity: 0.42 !important;
+}
+
+.heybuds-approach-panel .bg-dot-shape img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.heybuds-approach-panel .line {
+  position: absolute !important;
+  top: 13% !important;
+  left: 10.4% !important;
+  opacity: 0.72 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.heybuds-approach-panel .bg-blur-shape .shape {
+  animation: heybudsGlowPulse 7s ease-in-out infinite !important;
+}
+
+.heybuds-approach-panel .bg-blur-shape .shape:nth-child(2) {
+  animation-delay: 1.5s !important;
+}
+
+/* tablet */
+@media (max-width: 1200px) {
+  .heybuds-approach-panel {
+    min-height: auto !important;
+    padding: 54px 34px !important;
+  }
+
+  .heybuds-approach-heading {
+    margin-left: 0 !important;
+    margin-top: 48px !important;
+  }
+
+  .heybuds-approach-heading .section-title {
+    font-size: clamp(26px, 4vw, 42px) !important;
+  }
+
+  .heybuds-approach-panel .bg-dot-shape {
+    width: 780px !important;    
+    max-width: 58% !important;    
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .heybuds-mission-area--process {
+    padding: 28px 0 64px !important;
+  }
+
+  .heybuds-approach-panel {
+    padding: 40px 22px !important;
+    border-radius: 22px !important;
+  }
+
+  .heybuds-approach-panel .single-step,
+  .heybuds-approach-panel .heybuds-approach-item {
+    gap: 18px !important;
+  }
+
+  .heybuds-approach-panel .heybuds-approach-item + .heybuds-approach-item {
+    margin-top: 42px !important;
+  }
+
+  .heybuds-approach-panel .heybuds-approach-item .number {
+    flex: 0 0 64px !important;
+    width: 64px !important;
+    font-size: 52px !important;
+  }
+
+  .heybuds-approach-panel .heybuds-approach-item .title {
+    font-size: 22px !important;
+  }
+
+  .heybuds-approach-panel .heybuds-approach-item .desc {
+    font-size: 16px !important;
+  }
+
+  .heybuds-approach-heading .section-title {
+    font-size: clamp(26px, 4vw, 42px) !important;
+  }
+
+  .heybuds-approach-panel .line {
+    display: none !important;
+  }
+}
+
 .heybuds-mission-area__desc {
   margin: 26px 0 0;
   max-width: 560px;
@@ -253,7 +505,7 @@ html {
 .heybuds-industries-card h3,
 .heybuds-trust-card h3 {
   margin: 0 0 22px;
-  color: #0c0c13;
+  color: #ffffff;
   font-size: 34px;
   font-weight: 700;
   line-height: 1.2;
@@ -293,7 +545,7 @@ html {
 .heybuds-trust-card p {
   max-width: 560px;
   margin: 0;
-  color: #12131a;
+  color: #ebebeb;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.45;
@@ -309,7 +561,7 @@ html {
   margin: 0 !important;
   color: #ffb020 !important;
   font-size: 32px !important;
-  letter-spacing: 2px;
+  letter-spacing: 2px;  
   line-height: 1;
 }
 
@@ -632,6 +884,37 @@ html {
   }
 }
 
+@keyframes heybudsStepIn {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heybudsGlowPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.05;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.1;
+  }
+}
+
+@keyframes heybudsWaveDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(-24px, -16px, 0) rotate(2deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -685,6 +968,41 @@ html {
 
   .heybuds-approach-item > span {
     font-size: 38px;
+  }
+
+  .rts-about-area-four .about-four-visual__frame--banner {
+    min-height: 460px;
+  }
+
+  .heybuds-mission-area--process {
+    padding-top: 20px;
+  }
+
+  .heybuds-approach-panel {
+    padding: 42px 24px;
+    border-radius: 22px;
+  }
+
+  .heybuds-approach-panel .line {
+    display: none;
+  }
+
+  .heybuds-approach-heading {
+    margin-left: 0;
+    padding-top: 10px;
+  }
+
+  .heybuds-approach-panel .heybuds-approach-item {
+    gap: 18px;
+  }
+
+  .heybuds-approach-panel .heybuds-approach-item .number {
+    flex-basis: auto;
+    font-size: 48px;
+  }
+
+  .heybuds-approach-panel .heybuds-approach-item .content {
+    margin-top: 6px;
   }
 
   .heybuds-industries-card,
