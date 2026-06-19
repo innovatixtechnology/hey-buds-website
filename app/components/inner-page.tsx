@@ -37,22 +37,10 @@ export default function InnerPage({ title, eyebrow = 'HeyBuds', description = 'H
                         About
                       </a>
                     </li>
-                    <li className="menu-item rts-has-dropdown">
-                      <a className="main-element rts-dropdown-main-element" href="/services">
-                        Pages
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/services">
+                        Services
                       </a>
-                      <ul className="rts-submenu service-mega-menu-style">
-                        {pagesMenu.map((link) => (
-                          <li className="nav-item" key={link.href}>
-                            <a className="nav-link" href={link.href}>
-                              <span>
-                                <span className="title">{link.label}</span>
-                                <span className="details">{link.details}</span>
-                              </span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
                     </li>
                     <li className="menu-item">
                       <a className="main-element without-arrow" href="/blog">
