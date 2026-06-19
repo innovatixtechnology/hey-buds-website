@@ -2,15 +2,13 @@
 
 import { FormEvent, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { blogMenu, blogs, brandLogos, faqs, features, homeMenu, navLinks, pagesMenu, plans, services, steps, testimonials } from '../data/site-content';
+import { blogs, faqs, features, navLinks, pagesMenu, plans, services, steps } from '../data/site-content';
 import { useEntryAnimations } from '../hooks/use-entry-animations';
 import { ArrowIcon, Logo, SubTitle, asset } from './widgets';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-
   useEntryAnimations();
 
   function handleNewsletter(event: FormEvent<HTMLFormElement>) {
@@ -31,19 +29,10 @@ export default function Home() {
                 </div>
                 <nav className="main-nav-area" aria-label="Primary">
                   <ul className="list-unstyled rts-desktop-menu">
-                    <li className="menu-item rts-has-dropdown">
-                      <a className="main-element rts-dropdown-main-element" href="/">
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/">
                         Home
                       </a>
-                      <ul className="rts-submenu">
-                        {homeMenu.map((link) => (
-                          <li className="nav-item" key={link.label}>
-                            <a className="nav-link" href={link.href}>
-                              {link.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
                     </li>
                     <li className="menu-item">
                       <a className="main-element without-arrow" href="/about">
@@ -67,19 +56,10 @@ export default function Home() {
                         ))}
                       </ul>
                     </li>
-                    <li className="menu-item rts-has-dropdown">
-                      <a className="main-element rts-dropdown-main-element" href="/blog">
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/blog">
                         Blog
                       </a>
-                      <ul className="rts-submenu">
-                        {blogMenu.map((link) => (
-                          <li className="nav-item" key={link.label}>
-                            <a className="nav-link" href={link.href}>
-                              {link.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
                     </li>
                     <li className="menu-item">
                       <a className="main-element without-arrow" href="/contact">
@@ -129,17 +109,17 @@ export default function Home() {
                     </ul>
                     <div className="section-title-area">
                       <h1 className="section-title">
-                        {['Chatbots', 'That', 'Think', 'Like', 'Humans', 'Work', 'Like', 'Machines.'].map((word, index) => (
+                        {['AI Employees', 'For', 'Every', 'Business', 'That', 'Think', 'Like', 'Humans', 'Work', 'Like', 'Machines.'].map((word, index) => (
                           <span className="headline-word" style={{ '--word-index': index } as CSSProperties & { '--word-index': number }} key={`${word}-${index}`}>
                             {index === 0 ? <span className="gradient-text">{word}</span> : word}
                           </span>
                         ))}
                       </h1>
                     </div>
-                    <p className="desc">Harness the power of Artificial Intelligence to streamline processes, enhance decision making, and drive innovation.</p>
+                    <p className="desc">AI employees that answer customers, book appointments, qualify leads, and follow up automatically — 24/7.</p>
                     <div className="button-area">
                       <a href="#services" className="rts-btn btn-primary">
-                        Discover More
+                        Start Free Trial
                         <ArrowIcon />
                       </a>
                     </div>
@@ -147,8 +127,8 @@ export default function Home() {
                 </div>
                 <div className="col-lg-6">
                   <div className="right-content-area">
-                    <div className="banner-hero">
-                      <img src={asset('images/banner/02.webp')} width="554" alt="HeyBuds chatbot interface" />
+                    <div className="banner-hero heybuds-hero-product">
+                      <img src={asset('images/heybuds/ai-employee-hero.png')} width="640" alt="Hey Buds AI employee automation dashboard" />
                     </div>
                     <div className="banner-chat-area">
                       <div className="chat chat-one">
@@ -168,15 +148,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="bottom-brand-area">
-            <ul>
-              {brandLogos.map((logo) => (
-                <li key={logo}>
-                  <img src={asset(`images/brand/${logo}`)} alt="" />
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
@@ -230,7 +201,7 @@ export default function Home() {
             <div className="section-title-area">
               <SubTitle>Feature</SubTitle>
               <h2 className="section-title animated-title mb-0">
-                Features That Make Our <br /> <span className="gradient-text">Chatbots Smarter</span>
+                Features That Make Our <br /> <span className="gradient-text">AI Employee Smarter</span>
               </h2>
             </div>
             <div className="section-inner mt--60">
@@ -303,7 +274,7 @@ export default function Home() {
                 <div className={`pricing-wrapper${plan.highlighted ? ' mid' : ''}`} key={plan.name}>
                   <div className="price">
                     <span className="price-amount">{plan.price}</span>
-                    <span className="price-period">Month</span>
+                    {plan.period ? <span className="price-period">{plan.period}</span> : null}
                   </div>
                   <ul className="feature-list">
                     {plan.features.map((feature) => (
@@ -313,8 +284,8 @@ export default function Home() {
                     ))}
                   </ul>
                   <div className="button-area">
-                    <a href="#contact" className="rts-btn border-btn">
-                      Start Free Trial
+                    <a href="/contact" className="rts-btn border-btn">
+                      {plan.cta}
                       <ArrowIcon white />
                     </a>
                   </div>
@@ -333,9 +304,9 @@ export default function Home() {
         <section className="rts-working-process-area area-1">
           <div className="container">
             <div className="section-title-area center-style">
-              <SubTitle>How It Works</SubTitle>
+              <SubTitle>Our Approach</SubTitle>
               <h2 className="section-title animated-title mb-0">
-                Getting Started <span className="gradient-text">With AI</span>
+                Building Smarter <span className="gradient-text">Customer Experiences</span>
               </h2>
             </div>
             <div className="section-inner mt--60">
@@ -343,14 +314,15 @@ export default function Home() {
                 <img src={asset('images/working-process/line.svg')} alt="" />
               </div>
               <div className="row g-5">
-                {steps.map(([tag, title], index) => (
-                  <div className="col-lg-3 col-sm-6" key={tag}>
+                {steps.map(([tag, title, desc], index) => (
+                  <div className="col-lg-4 col-sm-6" key={tag}>
                     <div className="working-process-wrapper">
                       <span className="tag">{tag}</span>
                       <div className="icon">
                         <img src={asset(`images/working-process/${String(index + 1).padStart(2, '0')}.svg`)} alt="" />
                       </div>
                       <h3 className="h6 title">{title}</h3>
+                      <p className="desc">{desc}</p>
                     </div>
                   </div>
                 ))}
@@ -363,6 +335,66 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="rts-testimonials-area area-3">
+          <div className="container">
+            <div className="section-title-area center-style">
+              <SubTitle>Industries</SubTitle>
+              <h2 className="section-title animated-title mb-0">
+                AI Employees for <span className="gradient-text">Every Business</span>
+              </h2>
+            </div>
+            <div className="section-inner mt--60">
+              <div className="row g-39">
+                <div className="col-lg-6">
+                  <div className="left-image-area ext-images">
+                    <img src={asset('images/testimonials/01.webp')} alt="HeyBuds customer" />
+                    <div className="counter-area">
+                      <h2 className="title">5★</h2>
+                      <p className="text">Trusted Across Multiple Industries</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-6">
+                  <div className="row g-5">
+                    <div className="col-12">
+                      <div className="heybuds-industries-card">
+                        <h3>Industries We Serve</h3>
+                        <ul>
+                          <li>
+                            <span aria-hidden="true">🍽️</span> Restaurants &amp; Cafés
+                          </li>
+                          <li>
+                            <span aria-hidden="true">🏥</span> Healthcare &amp; Clinics
+                          </li>
+                          <li>
+                            <span aria-hidden="true">🎓</span> Schools &amp; Educational Institutions
+                          </li>
+                          <li>
+                            <span aria-hidden="true">🏠</span> Real Estate
+                          </li>
+                          <li>
+                            <span aria-hidden="true">🛒</span> E-Commerce
+                          </li>
+                          <li>
+                            <span aria-hidden="true">💼</span> Service Businesses
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="heybuds-trust-card">
+                        <h3>Trusted Across Multiple Industries</h3>
+                        <p className="heybuds-trust-card__stars">★★★★★</p>
+                        <p>Helping businesses automate conversations, capture leads, and improve customer experience.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="rts-faq-area rts-section-gap" id="faq">
           <div className="container">
             <div className="section-inner">
@@ -370,12 +402,12 @@ export default function Home() {
                 <div className="col-lg-6">
                   <div className="left-faq-content-area">
                     <div className="section-title-area">
-                      <SubTitle>FAQ</SubTitle>
+                      <SubTitle>Frequently Asked Questions</SubTitle>
                       <h2 className="section-title animated-title mb-0">
-                        Frequently <br /> Asked <span className="gradient-text">Question</span>
+                        Got Questions? <br /> We've Got <span className="gradient-text">Answers.</span>
                       </h2>
                     </div>
-                    <p className="desc">Answers to the questions teams usually ask before launching a HeyBuds chatbot.</p>
+                    <p className="desc">Learn how Hey Buds helps businesses automate conversations, capture more leads, and deliver exceptional customer experiences 24/7.</p>
                     <div className="transparent-text gradient-text-stroke cw">FAQ</div>
                   </div>
                 </div>
@@ -411,67 +443,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rts-testimonials-area area-3">
-          <div className="container">
-            <div className="section-title-area center-style">
-              <SubTitle>Testimonials</SubTitle>
-              <h2 className="section-title animated-title mb-0">
-                Our <span className="gradient-text">Customer</span> Say
-              </h2>
-            </div>
-            <div className="section-inner mt--60">
-              <div className="row g-39">
-                <div className="col-lg-6">
-                  <div className="left-image-area ext-images">
-                    <img src={asset('images/testimonials/01.webp')} alt="HeyBuds customer" />
-                    <div className="counter-area">
-                      <h2 className="title">95%</h2>
-                      <p className="text">Positive Rating Of Our Agency</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-6">
-                  <div className="row g-5">
-                    <div className="col-12">
-                      <div className="client-review-area review-two">
-                        <div className="testimonials-wrapper-two">
-                          <div className="image-area">
-                            <img src={asset(`images/brand/${testimonials[activeTestimonial].logo}`)} alt="" />
-                          </div>
-                          <p className="text h6">{testimonials[activeTestimonial].quote}</p>
-                          <div className="author-area">
-                            <p className="name">{testimonials[activeTestimonial].name}</p>
-                            <p className="designation">
-                              {testimonials[activeTestimonial].designation} <span>{testimonials[activeTestimonial].company}</span>
-                            </p>
-                          </div>
-                        </div>
-                        <div className="slider-dots heybuds-slider-dots" aria-label="Choose testimonial">
-                          {testimonials.map((testimonial, index) => (
-                            <button
-                              key={testimonial.name}
-                              type="button"
-                              aria-label={`Show testimonial ${index + 1}`}
-                              className={index === activeTestimonial ? 'active' : ''}
-                              onClick={() => setActiveTestimonial(index)}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12">
-                      <div className="author-stars-area">
-                        <img className="author-thumb" src={asset('images/testimonials/author-02.webp')} width="132" alt="" />
-                        <img className="author-star" src={asset('images/testimonials/star.svg')} alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="rts-blog-area rts-section-gap">
           <div className="container">
             <div className="section-title-area d-flex align-items-end justify-content-between">
@@ -497,16 +468,16 @@ export default function Home() {
                       <div className="blog-card">
                         <div className="blog-card__thumb">
                           <span className="blog-card__date">10, March, 2026</span>
-                          <a href="#contact">
+                          <a href={`/blog/${blog.slug}`}>
                             <img src={asset(`images/blog/${blog.image}`)} alt={blog.title} />
                           </a>
                         </div>
                         <div className="blog-card__content">
                           <p className="blog-card__tag">{blog.tag}</p>
                           <h3 className="h6 blog-card__title">
-                            <a href="#contact">{blog.title}</a>
+                            <a href={`/blog/${blog.slug}`}>{blog.title}</a>
                           </h3>
-                          <p className="blog-card__desc">Discover real-world applications of AI and how companies are using it to scale faster.</p>
+                          <p className="blog-card__desc">{blog.desc}</p>
                         </div>
                       </div>
                     </article>
@@ -527,9 +498,9 @@ export default function Home() {
                   <i className="fa-solid fa-phone" />
                 </div>
                 <div className="footer-contact-bar__content">
-                  <h2 className="h6 label">Call Us 24/7</h2>
-                  <a href="tel:+25621452156" className="value">
-                    (+256) 2145.2156
+                  <h2 className="h6 label">Call</h2>
+                  <a href="tel:+919763410681" className="value">
+                    9763410681
                   </a>
                 </div>
               </div>
@@ -539,8 +510,8 @@ export default function Home() {
                 </div>
                 <div className="footer-contact-bar__content">
                   <h2 className="h6 label">Work with us</h2>
-                  <a href="mailto:info@heybuds.com" className="value">
-                    info@heybuds.com
+                  <a href="mailto:info@heybuds.in" className="value">
+                    info@heybuds.in
                   </a>
                 </div>
               </div>
@@ -550,7 +521,7 @@ export default function Home() {
                 </div>
                 <div className="footer-contact-bar__content">
                   <h2 className="h6 label">Our Location</h2>
-                  <span className="value">XYZ Hilton United State</span>
+                  <span className="value">Pune</span>
                 </div>
               </div>
             </div>
@@ -561,7 +532,7 @@ export default function Home() {
           <div className="footer-inner">
             <div className="single-footer-widget-one logo-area">
               <Logo footer />
-              <p className="desc">Protect your business with intelligent automation built around your customer needs.</p>
+              <p className="desc">Hey Buds helps businesses deploy AI Employees that answer questions, capture leads, automate conversations, and support customers 24/7 across websites, WhatsApp, and digital channels.</p>
               <ul className="social-area">
                 <li>
                   <a href="#" aria-label="Facebook">
@@ -599,21 +570,21 @@ export default function Home() {
               <h2 className="title">Services</h2>
               <ul>
                 <li>
-                  <a href="#services">AI Automation</a>
+                  <a href="#services">AI Sales Agents</a>
                 </li>
                 <li>
-                  <a href="#features">Data Analytics</a>
+                  <a href="#features">AI Support Agents</a>
                 </li>
                 <li>
-                  <a href="#features">Machine Learning</a>
+                  <a href="#features">AI Appointment Assistants</a>
                 </li>
                 <li>
-                  <a href="#features">Customer Support</a>
+                  <a href="#features">Custom AI Solutions</a>
                 </li>
               </ul>
             </div>
             <div className="single-footer-widget-one get-in-touch">
-              <h2 className="title">Smarter Decisions Start Here</h2>
+              <h2 className="title">Let's Build Your AI Employee</h2>
               <form className="newsletter-form" onSubmit={handleNewsletter}>
                 <input type="email" placeholder="Enter Email Address" required aria-label="Email address" />
                 <button type="submit" aria-label="Subscribe">
@@ -627,7 +598,7 @@ export default function Home() {
           <div className="row">
             <div className="col-lg-12">
               <div className="copyright-area-start">
-                <p>HeyBuds-Copyright 2026. All rights reserved.</p>
+                <p>© 2026 Hey Buds AI. All Rights Reserved.</p>
               </div>
             </div>
           </div>

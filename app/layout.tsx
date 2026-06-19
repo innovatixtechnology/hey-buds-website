@@ -5,7 +5,8 @@ export const metadata: Metadata = {
   title: 'HeyBuds | Artificial Intelligence & Technology',
   description: 'HeyBuds AI chatbot landing page.',
   icons: {
-    icon: '/assets/images/fav.svg',
+    icon: '/assets/images/heybuds/favicon.png',
+    apple: '/assets/images/heybuds/favicon.png',
   },
 };
 

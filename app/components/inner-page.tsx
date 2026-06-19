@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { blogMenu, homeMenu, navLinks, pagesMenu } from '../data/site-content';
+import { navLinks, pagesMenu } from '../data/site-content';
 import { ArrowIcon, Logo, SubTitle, asset } from './widgets';
 
 type InnerPageProps = {
@@ -27,19 +27,10 @@ export default function InnerPage({ title, eyebrow = 'HeyBuds', description = 'H
                 </div>
                 <nav className="main-nav-area" aria-label="Primary">
                   <ul className="list-unstyled rts-desktop-menu">
-                    <li className="menu-item rts-has-dropdown">
-                      <a className="main-element rts-dropdown-main-element" href="/">
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/">
                         Home
                       </a>
-                      <ul className="rts-submenu">
-                        {homeMenu.map((link) => (
-                          <li className="nav-item" key={link.label}>
-                            <a className="nav-link" href={link.href}>
-                              {link.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
                     </li>
                     <li className="menu-item">
                       <a className="main-element without-arrow" href="/about">
@@ -63,19 +54,10 @@ export default function InnerPage({ title, eyebrow = 'HeyBuds', description = 'H
                         ))}
                       </ul>
                     </li>
-                    <li className="menu-item rts-has-dropdown">
-                      <a className="main-element rts-dropdown-main-element" href="/blog">
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/blog">
                         Blog
                       </a>
-                      <ul className="rts-submenu">
-                        {blogMenu.map((link) => (
-                          <li className="nav-item" key={link.label}>
-                            <a className="nav-link" href={link.href}>
-                              {link.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
                     </li>
                     <li className="menu-item">
                       <a className="main-element without-arrow" href="/contact">
@@ -151,7 +133,9 @@ export default function InnerPage({ title, eyebrow = 'HeyBuds', description = 'H
           <div className="footer-inner compact-footer">
             <div className="single-footer-widget-one logo-area">
               <Logo footer />
-              <p className="desc">Protect your business with intelligent automation built around your customer needs.</p>
+              <p className="desc">
+                Hey Buds helps businesses deploy AI Employees that answer questions, capture leads, automate conversations, and support customers 24/7 across websites, WhatsApp, and digital channels.
+              </p>
             </div>
             <div className="single-footer-widget-one essential-links">
               <h2 className="title">Quick Links</h2>
@@ -165,7 +149,7 @@ export default function InnerPage({ title, eyebrow = 'HeyBuds', description = 'H
             </div>
           </div>
           <div className="copyright-area-start">
-            <p>HeyBuds-Copyright 2026. All rights reserved.</p>
+            <p>© 2026 Hey Buds AI. All Rights Reserved.</p>
           </div>
         </div>
       </footer>

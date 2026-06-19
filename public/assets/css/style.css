@@ -21923,6 +21923,7 @@ body.overflow-x-visible {
   pointer-events: none;
 }
 .rts-contact-layout .rts-contact-form-area .contact-form .input-with-icon input,
+.rts-contact-layout .rts-contact-form-area .contact-form .input-with-icon select,
 .rts-contact-layout .rts-contact-form-area .contact-form .input-with-icon textarea {
   border-radius: 6px;
   border-color: rgba(128, 66, 45, 0.2) rgba(23, 57, 152, 0.2) rgba(128, 66, 45, 0.2) rgba(165, 62, 27, 0.2);
@@ -21937,6 +21938,7 @@ body.overflow-x-visible {
   font-weight: 500 !important;
 }
 .rts-contact-layout .rts-contact-form-area .contact-form .input-with-icon input:focus,
+.rts-contact-layout .rts-contact-form-area .contact-form .input-with-icon select:focus,
 .rts-contact-layout .rts-contact-form-area .contact-form .input-with-icon textarea:focus {
   border-color: #80422da5 #173998 #80422da5 #A53E1B;
 }

@@ -24,7 +24,6 @@ export function useEntryAnimations() {
     register('.rts-banner-area-three .left-content-area > .button-area');
     register('.rts-banner-area-three .right-content-area', 'right');
     register('.banner-chat-area .chat', 'right');
-    register('.bottom-brand-area li', 'scale');
     register('.rts-section-gap .section-title-area, .rts-section-gapBottom .section-title-area, .rts-working-process-area .section-title-area, .rts-testimonials-area .section-title-area');
     register('.service-wrapper2, .service-wrapper3');
     register('.feature-wrapper3');

@@ -1,10 +1,8 @@
 'use client';
 
 import { CSSProperties, FormEvent, ReactNode, useState } from 'react';
-import { blogMenu, homeMenu, navLinks, pagesMenu } from '../data/site-content';
+import { blogs, faqs, navLinks, pagesMenu, steps } from '../data/site-content';
 import { ArrowIcon, Logo, asset } from './widgets';
-
-const brandList = ['01.svg', '02.svg', '03.svg', '04.svg', '05.svg'];
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,20 +21,10 @@ function Header() {
                 </div>
                 <nav className="main-nav-area" aria-label="Primary">
                   <ul className="list-unstyled rts-desktop-menu">
-                    <li className="menu-item rts-has-dropdown">
-                      <a className="main-element rts-dropdown-main-element" href="/">
+                    <li className="menu-item">
+                      <a className="main-element without-arrow" href="/">
                         Home
                       </a>
-                      <ul className="rts-submenu list-unstyled menu-home">
-                        {homeMenu.map((link, index) => (
-                          <li className="nav-item" key={link.label}>
-                            <a className="nav-link page" href={link.href}>
-                              <img src={asset(`images/menu/${String(index + 1).padStart(2, '0')}.webp`)} alt="" />
-                              <span>{link.label}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
                     </li>
                     <li className="menu-item">
                       <a className="main-element without-arrow" href="/about">
@@ -70,19 +58,10 @@ function Header() {
                         </div>
                       </div>
                     </li>
-                    <li className="menu-item rts-has-dropdown">
-                      <a href="/blog" className="rts-dropdown-main-element">
+                    <li className="menu-item">
+                      <a href="/blog" className="main-element without-arrow">
                         Blog
                       </a>
-                      <ul className="rts-submenu list-unstyled">
-                        {blogMenu.map((link) => (
-                          <li className="nav-item" key={link.href}>
-                            <a className="nav-link" href={link.href}>
-                              {link.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
                     </li>
                     <li className="menu-item">
                       <a className="main-element without-arrow" href="/contact">
@@ -142,9 +121,9 @@ function Footer() {
         <div className="container">
           <div className="footer-contact-bar__inner">
             {[
-              ['fa-phone', 'Call Us 24/7', '(+256) 2145.2156', 'tel:+25621452156'],
-              ['fa-envelope', 'Work with us', 'info@heybuds.com', 'mailto:info@heybuds.com'],
-              ['fa-location-dot', 'Our Location', 'XYZ Hilton United State', ''],
+              ['fa-phone', 'Call', '9763410681', 'tel:+919763410681'],
+              ['fa-envelope', 'Work with us', 'info@heybuds.in', 'mailto:info@heybuds.in'],
+              ['fa-location-dot', 'Our Location', 'Pune', ''],
             ].map(([icon, label, value, href]) => (
               <div className="footer-contact-bar__item" key={label}>
                 <div className="footer-contact-bar__icon">
@@ -169,7 +148,7 @@ function Footer() {
         <div className="footer-inner">
           <div className="single-footer-widget-one logo-area">
             <Logo footer />
-            <p className="desc">Protect your business with cutting security solutions your needs.</p>
+            <p className="desc">Hey Buds helps businesses deploy AI Employees that answer questions, capture leads, automate conversations, and support customers 24/7 across websites, WhatsApp, and digital channels.</p>
             <ul className="social-area">
               {['fa-facebook-f', 'fa-twitter', 'fa-linkedin', 'fa-instagram'].map((icon) => (
                 <li key={icon}>
@@ -193,7 +172,7 @@ function Footer() {
           <div className="single-footer-widget-one essential-links">
             <h2 className="title">Services</h2>
             <ul>
-              {['AI Automation', 'Data Analytics', 'Machine Learning', 'Computer Vision'].map((item) => (
+              {['AI Sales Agents', 'AI Support Agents', 'AI Appointment Assistants', 'Custom AI Solutions'].map((item) => (
                 <li key={item}>
                   <a href="/services">{item}</a>
                 </li>
@@ -201,7 +180,7 @@ function Footer() {
             </ul>
           </div>
           <div className="single-footer-widget-one get-in-touch">
-            <h2 className="title">Smarter Decisions Start Here</h2>
+            <h2 className="title">Let's Build Your AI Employee</h2>
             <form className="newsletter-form" onSubmit={(event: FormEvent<HTMLFormElement>) => event.preventDefault()}>
               <input type="email" placeholder="Enter Email Address" required aria-label="Email address" />
               <button type="submit" aria-label="Subscribe">
@@ -213,7 +192,7 @@ function Footer() {
           </div>
         </div>
         <div className="copyright-area-start">
-          <p>HeyBuds-Copyright 2026. All rights reserved.</p>
+          <p>© 2026 Hey Buds AI. All Rights Reserved.</p>
         </div>
       </div>
       <div className="footer-shape-area">
@@ -240,27 +219,6 @@ function Breadcrumb({ title, current, bg, reverse = true }: { title: string; cur
         </div>
         <div className="breadcrumb-logo">
           <Logo />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function BrandArea({ gapTop = false }: { gapTop?: boolean }) {
-  return (
-    <div className={`rts-brand-area ${gapTop ? 'rts-section-gapTop' : 'rts-section-gap'}`}>
-      <div className="container">
-        <div className="section-inner">
-          <p className="desc">Trusted by the world's leading enterprises</p>
-          <ul className="brand-inner">
-            {brandList.map((logo) => (
-              <li key={logo}>
-                <a href="#" className="brand">
-                  <img src={asset(`images/brand/${logo}`)} alt="" />
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </div>
@@ -389,7 +347,6 @@ export function ServiceTemplatePage() {
   return (
     <TemplatePageShell>
       <Breadcrumb title="Our Service" current="Our Service" bg="bg-02.webp" />
-      <BrandArea gapTop />
       <section className="rts-services-area rts-section-gap">
         <div className="container">
           <div className="section-title-area d-flex align-items-end justify-content-between">
@@ -570,21 +527,15 @@ export function ServiceTemplatePage() {
 
 export function AboutTemplatePage() {
   const counters = [
-    ['100', 'K+', 'Automated Conversion'],
-    ['120', 'K+', 'Active users every day'],
-    ['100', '+', 'Expert Team Member'],
-    ['85', '%', 'Success Rate'],
-  ];
-  const steps = [
-    ['01', 'Neurons & Layers', 'Data passes through hidden layers where artificial neurons apply weights and activation functions.'],
-    ['02', 'Learning & Backpropagation', 'The network adjusts its internal parameters by comparing predictions with the correct answers and minimizing error.'],
-    ['03', 'Continuous Improvement', 'Models can be fine-tuned, retrained, and scaled to adapt to changing real-world challenges.'],
+    ['24', '/7', 'AI Employee Availability'],
+    ['1', 's', 'Average Response Time'],
+    ['6', '+', 'Industries Supported'],
+    ['100', '%', 'Lead Capture Coverage'],
   ];
 
   return (
     <TemplatePageShell>
       <Breadcrumb title="About Us" current="About Us" bg="bg-01.webp" reverse={false} />
-      <BrandArea />
       <Marquee />
       <section className="rts-about-area-four white rts-section-gap">
         <div className="container">
@@ -594,16 +545,20 @@ export function AboutTemplatePage() {
                 <div className="about-four-content">
                   <div className="section-title-area">
                     <p className="sub-title about-four-sub">
-                      <img src={asset('images/icon/sub-icon.svg')} alt="" /> About Us
+                      <img src={asset('images/icon/sub-icon.svg')} alt="" /> About Hey Buds
                     </p>
                     <h2 className="section-title animated-title mb-0 about-four-title">
-                      The team behind <br />
-                      <span className="gradient-text">the intelligence</span>
+                      Inspired by a Simple <br />
+                      <span className="gradient-text">Conversation</span>
                     </h2>
                   </div>
                   <div className="about-four-body">
-                    <p className="desc">We are passionate about building intelligent solutions that transform the way people live and work. Our mission is to harness the power of Artificial Intelligence to solve complex challenges, unlock new opportunities, and drive innovation across industries.</p>
-                    <p className="desc">By combining advanced machine learning, natural language processing, and automation, we deliver technology that not only solves complex problems but also drives sustainable growth.</p>
+                    <p className="desc">At Hey Buds, we believe every meaningful journey begins with a simple conversation.</p>
+                    <p className="desc">We created Hey Buds to help businesses stay connected, responsive, and available whenever their customers need them. Our AI employees are designed to answer questions, support customers, and create experiences that feel natural, intelligent, and human.</p>
+                    <p className="desc">The name "Hey Buds" reflects the beginning of something meaningful - a first conversation, a new idea, or an opportunity waiting to grow.</p>
+                    <p className="desc">Just as every flower begins as a bud, every successful business starts with a single interaction. That belief inspires everything we build.</p>
+                    <p className="desc">Today, Hey Buds helps organizations grow through intelligent conversations, seamless automation, and AI employees that work around the clock. As technology evolves, our mission remains the same: to make communication smarter, more accessible, and more human.</p>
+                    <p className="desc">Built with purpose. Inspired by connection. Designed to help businesses grow.</p>
                     <div className="button-area">
                       <a href="/contact" className="rts-btn border-btn">
                         Explore More
@@ -650,45 +605,31 @@ export function AboutTemplatePage() {
           </div>
         </div>
       </section>
-      <section className="rts-working-process-area dark element-move">
-        <div className="custom-container">
-          <div className="working-process-wrapper-two bg-dark">
-            <div className="line">
-              <img src={asset('images/working-process/line-2.svg')} alt="" />
-            </div>
-            <div className="row justify-content-between">
-              <div className="col-xl-6 order-change-lg-2 order-change-md-2">
-                <div className="working-step-wrapper two">
-                  {steps.map(([number, title, desc]) => (
-                    <div className="single-step" key={number}>
-                      <h3 className="number">{number}</h3>
-                      <div className="content">
-                        <h4 className="title">{title}</h4>
-                        <p className="desc">{desc}</p>
-                      </div>
+      <section className="heybuds-mission-area rts-section-gap">
+        <div className="container">
+          <div className="row g-5 align-items-center">
+            <div className="col-xl-7">
+              <div className="heybuds-approach-list">
+                {steps.map(([tag, title, desc]) => (
+                  <div className="heybuds-approach-item" key={tag}>
+                    <span>{tag}</span>
+                    <div>
+                      <h3>{title}</h3>
+                      <p>{desc}</p>
                     </div>
-                  ))}
-                </div>
-              </div>
-              <div className="col-xl-6">
-                <div className="working-right-content-area">
-                  <div className="section-title-area">
-                    <p className="sub-title">
-                      <img src={asset('images/icon/sub-icon.svg')} alt="" /> Our Approach
-                    </p>
-                    <h2 className="section-title animated-title mb-0 cw">
-                      Pioneering Tomorrow's <span className="gradient-text">Intelligent Future</span>
-                    </h2>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
-            <div className="bg-blur-shape">
-              <span className="shape" />
-              <span className="shape" />
-            </div>
-            <div className="bg-dot-shape moving-wrapper">
-              <img className="moving-img" src={asset('images/working-process/bg-dot-2.webp')} width="795" alt="" />
+            <div className="col-xl-5">
+              <div className="section-title-area">
+                <p className="sub-title">
+                  <img src={asset('images/icon/sub-icon.svg')} alt="" /> Our Approach
+                </p>
+                <h2 className="section-title animated-title mb-0">
+                  Building Smarter <span className="gradient-text">Customer Experiences</span>
+                </h2>
+              </div>
             </div>
           </div>
         </div>
@@ -706,12 +647,11 @@ export function AboutTemplatePage() {
           <div className="section-inner mt--60">
             <div className="row g-5">
               {[
-                ['01.webp', 'Archer Graham', 'Finance Manager'],
-                ['01.webp', 'Sophia Khan', 'AI Product Designer'],
-                ['02.webp', 'Michael Lee', 'Machine Learning Engineer'],
-                ['03.webp', 'James Collins', 'Data Engineer'],
+                ['01.webp', 'Yash Choudhary', 'Founder'],
+                ['02.webp', 'Aashish Kumar', 'Co-Founder'],
+                ['03.webp', 'Vishal Patil', 'Co-Founder'],
               ].map(([image, name, role]) => (
-                <div className="col-xl-3 col-lg-6 col-md-6" key={`${name}-${role}`}>
+                <div className="col-xl-4 col-lg-6 col-md-6" key={`${name}-${role}`}>
                   <TeamCard image={image} name={name} role={role} />
                 </div>
               ))}
@@ -725,14 +665,9 @@ export function AboutTemplatePage() {
 
 export function TeamTemplatePage() {
   const teamMembers = [
-    ['01.webp', 'Archer Graham', 'Finance Manager'],
-    ['01.webp', 'Sophia Khan', 'AI Product Designer'],
-    ['02.webp', 'Michael Lee', 'Machine Learning Engineer'],
-    ['03.webp', 'James Collins', 'Data Engineer'],
-    ['05.webp', 'Emily Davis', 'Marketing Manager', 'Archer Graham', 'Finance Manager'],
-    ['06.webp', 'Sarah Johnson', 'Product Designer', 'Sophia Khan', 'AI Product Designer'],
-    ['07.webp', 'Olivia Taylor', 'Content Strategist', 'Michael Lee', 'Machine Learning Engineer'],
-    ['08.webp', 'James Brown', 'UX/UI Designer', 'James Collins', 'Data Engineer'],
+    ['01.webp', 'Yash Choudhary', 'Founder'],
+    ['02.webp', 'Aashish Kumar', 'Co-Founder'],
+    ['03.webp', 'Vishal Patil', 'Co-Founder'],
   ];
 
   return (
@@ -742,7 +677,7 @@ export function TeamTemplatePage() {
         <div className="section-inner mt--60">
           <div className="row g-40">
             {teamMembers.map(([image, name, role, backName, backRole]) => (
-              <div className="col-xxl-3 col-md-6" key={`${name}-${role}`}>
+                <div className="col-xxl-4 col-md-6" key={`${name}-${role}`}>
                 <TeamCardTwo image={image} name={name} role={role} backName={backName} backRole={backRole} />
               </div>
             ))}
@@ -809,15 +744,6 @@ export function TeamTemplatePage() {
 }
 
 export function BlogTemplatePage() {
-  const posts = [
-    ['08.webp', '15, March, 2025', 'Ai Agency', 'Top 5 AI Trends Agencies Should Watch in 2025', "In today's competitive market, having an AI strategy is not just an option-it's a necessity."],
-    ['09.webp', '10, March, 2025', 'AI-Powered', 'AI-Powered Customer The Future of Engagement', 'Customer expectations are higher than ever, and businesses must deliver personalized.'],
-    ['10.webp', '22, March, 2025', 'AI Strategy', 'Why Every Brand Needs an AI Strategy', "Artificial Intelligence is no longer a futuristic concept it's a powerful tool driving real."],
-    ['06.webp', '10, March, 2025', 'Video Genarator', '5 Ways to Use Video to Grow Your Brand', 'Learn practical strategies to boost engagement and sales with impactful videos.'],
-    ['07.webp', '7,Augest,2025', 'Automation', 'Behind the Scenes How Our Video Generator Works', 'Learn how automation is reshaping industries and creating new opportunities.'],
-    ['05.webp', '14,July,2025', 'AI Chatbots', 'Building Smarter Customer with AI Chatbots', 'Discover real-world applications of AI and how best companies are using it to scale faster'],
-  ];
-
   return (
     <TemplatePageShell>
       <Breadcrumb title="Our Blog" current="Our Blog" bg="bg-02.webp" />
@@ -825,40 +751,123 @@ export function BlogTemplatePage() {
         <div className="container">
           <div className="section-inner">
             <div className="row g-5">
-              {posts.map(([image, date, tag, title, desc], index) => (
-                <div className="col-xl-4 col-lg-6" key={title}>
+              {blogs.map((blog, index) => (
+                <div className="col-xl-4 col-lg-6" key={blog.slug}>
                   <div className="blog-wrapper2 white" style={{ '--heybuds-delay': `${0.3 + (index % 3) * 0.3}s` } as CSSProperties & { '--heybuds-delay': string }}>
                     <div className="blog-card">
                       <div className="blog-card__thumb">
-                        <span className="blog-card__date">{date}</span>
-                        <a href="/blog-details">
-                          <img src={asset(`images/blog/${image}`)} alt="The Best Future of AI in Business" />
+                        <span className="blog-card__date">{blog.date}</span>
+                        <a href={`/blog/${blog.slug}`}>
+                          <img src={asset(`images/blog/${blog.image}`)} alt={blog.title} />
                         </a>
                       </div>
                       <div className="blog-card__content">
-                        <p className="blog-card__tag">{tag}</p>
+                        <p className="blog-card__tag">{blog.tag}</p>
                         <h2 className="h6 blog-card__title">
-                          <a href="/blog-details">{title}</a>
+                          <a href={`/blog/${blog.slug}`}>{blog.title}</a>
                         </h2>
-                        <p className="blog-card__desc">{desc}</p>
+                        <p className="blog-card__desc">{blog.desc}</p>
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            <ul className="rts-step-pagination">
-              {['01', '02', '03', '04'].map((step, index) => (
-                <li className={`step${index === 0 ? ' active' : ''}`} key={step}>
-                  <a href="#">{step}</a>
-                </li>
+          </div>
+        </div>
+      </section>
+    </TemplatePageShell>
+  );
+}
+
+type BlogPost = (typeof blogs)[number];
+
+export function BlogArticleTemplatePage({ post }: { post: BlogPost }) {
+  return (
+    <TemplatePageShell>
+      <Breadcrumb title={post.tag} current={post.title} bg="bg-02.webp" />
+      <article className="heybuds-article rts-section-gap">
+        <div className="container">
+          <div className="heybuds-article__layout">
+            <header className="heybuds-article__header">
+              <p className="heybuds-article__eyebrow">{post.tag}</p>
+              <h1>{post.title}</h1>
+              <p className="heybuds-article__summary">{post.desc}</p>
+              <div className="heybuds-article__meta">
+                <span>{post.date}</span>
+                <span>{post.readTime}</span>
+              </div>
+            </header>
+            <div className="heybuds-article__image">
+              <img src={asset(`images/blog/${post.image}`)} alt={post.title} />
+            </div>
+            <div className="heybuds-article__body">
+              <p className="heybuds-article__lead">{post.intro}</p>
+              {post.sections.map((section) => (
+                <section key={section.heading}>
+                  <h2>{section.heading}</h2>
+                  <p>{section.body}</p>
+                </section>
               ))}
-              <li className="step arrow">
-                <a href="#">
-                  <i className="fa-solid fa-chevrons-right" />
-                </a>
-              </li>
-            </ul>
+              <section className="heybuds-article__takeaways">
+                <h2>What to take from this</h2>
+                <ul>
+                  {post.takeaways.map((takeaway) => (
+                    <li key={takeaway}>{takeaway}</li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </article>
+    </TemplatePageShell>
+  );
+}
+
+export function FaqTemplatePage() {
+  const [openFaq, setOpenFaq] = useState(0);
+
+  return (
+    <TemplatePageShell>
+      <Breadcrumb title="FAQ" current="FAQ" bg="bg-02.webp" />
+      <section className="rts-faq-area rts-section-gap">
+        <div className="container">
+          <div className="section-title-area center-style">
+            <p className="sub-title">
+              <img src={asset('images/icon/sub-icon.svg')} alt="" /> Frequently Asked Questions
+            </p>
+            <h2 className="section-title animated-title mb-0">
+              Got Questions? We've Got <span className="gradient-text">Answers.</span>
+            </h2>
+            <p className="desc">Learn how Hey Buds helps businesses automate conversations, capture more leads, and deliver exceptional customer experiences 24/7.</p>
+          </div>
+          <div className="section-inner mt--60">
+            <div className="rts-accordion accordion-flush">
+              {faqs.map((faq, index) => {
+                const isOpen = openFaq === index;
+
+                return (
+                  <div className={`accordion-item${isOpen ? ' active' : ''}`} key={faq.question}>
+                    <div className="accordion-header">
+                      <button
+                        type="button"
+                        className={`accordion-button${isOpen ? '' : ' collapsed'}`}
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenFaq(isOpen ? -1 : index)}
+                      >
+                        {String(index + 1).padStart(2, '0')}. {faq.question}
+                      </button>
+                    </div>
+                    <div className={`accordion-collapse collapse${isOpen ? ' show' : ''}`}>
+                      <div className="accordion-body">
+                        <p className="desc">{faq.answer}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -867,10 +876,11 @@ export function BlogTemplatePage() {
 }
 
 export function ContactTemplatePage() {
+  const businessTypes = ['Restaurants & Cafes', 'Clinics & Healthcare Providers', 'Educational Institutions', 'Real Estate Agencies', 'Service Businesses', 'E-commerce Stores', 'Professional Consultants'];
+
   return (
     <TemplatePageShell>
       <Breadcrumb title="Let's Get In Touch" current="Contact Us" bg="bg-07.webp" />
-      <BrandArea gapTop />
       <section className="rts-contact-area rts-section-gap">
         <div className="container">
           <div className="rts-contact-layout">
@@ -880,9 +890,9 @@ export function ContactTemplatePage() {
                   <h2 className="title">Ready To Assist You Anytime With Your Questions.</h2>
                   <div className="contact-info-list">
                     {[
-                      ['fa-phone', 'Call Us 24/7', '(+256) 2145.2156', 'tel:+25621452156'],
-                      ['fa-envelope', 'Work with us', 'info@heybuds.com', 'mailto:info@heybuds.com'],
-                      ['fa-location-dot', 'Our Location', 'XYZ Hilton United State', ''],
+                      ['fa-phone', 'Call', '9763410681', 'tel:+919763410681'],
+                      ['fa-envelope', 'Email', 'info@heybuds.in', 'mailto:info@heybuds.in'],
+                      ['fa-location-dot', 'Location', 'Pune', ''],
                     ].map(([icon, label, value, href]) => (
                       <div className="contact-info-item" key={label}>
                         <div className="icon">
@@ -911,7 +921,28 @@ export function ContactTemplatePage() {
                       <span className="icon">
                         <img src={asset('images/icon/envelop.svg')} alt="" />
                       </span>
-                      <input type="email" name="email" placeholder="Johndoe@gmail.com" required />
+                      <input type="tel" name="mobile" placeholder="Mobile" required />
+                    </div>
+                    <div className="single-input-wrapper input-with-icon">
+                      <span className="icon">
+                        <img src={asset('images/icon/message.svg')} alt="" />
+                      </span>
+                      <select name="businessType" defaultValue="" required aria-label="Business type">
+                        <option value="" disabled>
+                          Select Business Type
+                        </option>
+                        {businessTypes.map((businessType) => (
+                          <option value={businessType} key={businessType}>
+                            {businessType}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="single-input-wrapper input-with-icon">
+                      <span className="icon">
+                        <img src={asset('images/icon/envelop.svg')} alt="" />
+                      </span>
+                      <input type="email" name="email" placeholder="Email" required />
                     </div>
                     <div className="single-input-wrapper input-with-icon">
                       <span className="icon">
