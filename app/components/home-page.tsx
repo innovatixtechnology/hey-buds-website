@@ -328,7 +328,7 @@ export default function Home() {
         <section className="rts-testimonials-area area-3">
           <div className="container">
             <div className="section-title-area center-style">
-              <SubTitle>Industries</SubTitle>
+              {/* <SubTitle>Industries</SubTitle> */}
               <h2 className="section-title animated-title mb-0">
                 Industries <span className="gradient-text">We Serve</span>
               </h2>
