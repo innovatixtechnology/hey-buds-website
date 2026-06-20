@@ -21217,7 +21217,7 @@ body.overflow-x-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(165, 62, 27, 0.88) 0%, rgba(100, 30, 10, 0.45) 35%, transparent 65%);
+  background: linear-gradient(to top, rgba(8, 10, 18, 0.72) 0%, rgba(8, 10, 18, 0.24) 34%, transparent 66%);
   border-radius: inherit;
 }
 .team-card__back {
@@ -21230,7 +21230,7 @@ body.overflow-x-visible {
   padding: 36px 30px 36px;
   opacity: 0;
   transition: var(--transition);
-  background: linear-gradient(0.48deg, #A53E1B -0.93%, #173998 99.6%);
+  background: linear-gradient(0.48deg, #111827 -0.93%, #173998 99.6%);
 }
 .team-card:hover .team-card__front {
   opacity: 0;
@@ -21441,7 +21441,7 @@ body.overflow-x-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(165, 62, 27, 0.88) 0%, rgba(100, 30, 10, 0.45) 35%, transparent 65%);
+  background: linear-gradient(to top, rgba(8, 10, 18, 0.72) 0%, rgba(8, 10, 18, 0.24) 34%, transparent 66%);
   border-radius: inherit;
 }
 .team-wrapper2 .team-card__back {
@@ -21454,7 +21454,7 @@ body.overflow-x-visible {
   padding: 36px 30px 36px;
   opacity: 0;
   transition: var(--transition);
-  background: linear-gradient(0.48deg, #A53E1B -0.93%, #173998 99.6%);
+  background: linear-gradient(0.48deg, #111827 -0.93%, #173998 99.6%);
   text-align: center;
   align-items: center;
 }

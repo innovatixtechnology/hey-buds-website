@@ -4,6 +4,8 @@ import { CSSProperties, FormEvent, ReactNode, useState } from 'react';
 import { blogs, faqs, navLinks, pagesMenu, steps } from '../data/site-content';
 import { ArrowIcon, Logo, asset } from './widgets';
 
+const heybudsInstagramUrl = 'https://www.instagram.com/heybuds.ai';
+
 type TeamSocial = {
   icon: string;
   href: string;
@@ -172,9 +174,9 @@ function Footer() {
         <div className="container">
           <div className="footer-contact-bar__inner">
             {[
-              ['fa-phone', 'Call', '9763410681', 'tel:+919763410681'],
+              ['fa-phone', 'Call', '+91 97634 10681', 'tel:+919763410681'],
               ['fa-envelope', 'Work with us', 'info@heybuds.in', 'mailto:info@heybuds.in'],
-              ['fa-location-dot', 'Our Location', 'Pune', ''],
+              ['fa-location-dot', 'Our Location', 'Pune, India', ''],
             ].map(([icon, label, value, href]) => (
               <div className="footer-contact-bar__item" key={label}>
                 <div className="footer-contact-bar__icon">
@@ -201,10 +203,15 @@ function Footer() {
             <Logo footer />
             <p className="desc">Hey Buds helps businesses deploy AI Employees that answer questions, capture leads, automate conversations, and support customers 24/7 across websites, WhatsApp, and digital channels.</p>
             <ul className="social-area">
-              {['fa-facebook-f', 'fa-twitter', 'fa-linkedin', 'fa-instagram'].map((icon) => (
-                <li key={icon}>
-                  <a href="#">
-                    <i className={`fa-brands ${icon}`} />
+              {[
+                { icon: 'fa-facebook-f', href: '#', label: 'Facebook' },
+                { icon: 'fa-twitter', href: '#', label: 'Twitter' },
+                { icon: 'fa-linkedin', href: '#', label: 'LinkedIn' },
+                { icon: 'fa-instagram', href: heybudsInstagramUrl, label: 'Instagram' },
+              ].map((social) => (
+                <li key={social.icon}>
+                  <a href={social.href} aria-label={social.label} target={social.href === '#' ? undefined : '_blank'} rel={social.href === '#' ? undefined : 'noopener noreferrer'}>
+                    <i className={`fa-brands ${social.icon}`} />
                   </a>
                 </li>
               ))}
@@ -938,9 +945,9 @@ export function ContactTemplatePage() {
                   <h2 className="title">Ready To Assist You Anytime With Your Questions.</h2>
                   <div className="contact-info-list">
                     {[
-                      ['fa-phone', 'Call', '9763410681', 'tel:+919763410681'],
+                      ['fa-phone', 'Call', '+91 97634 10681', 'tel:+919763410681'],
                       ['fa-envelope', 'Email', 'info@heybuds.in', 'mailto:info@heybuds.in'],
-                      ['fa-location-dot', 'Location', 'Pune', ''],
+                      ['fa-location-dot', 'Location', 'Pune, India', ''],
                     ].map(([icon, label, value, href]) => (
                       <div className="contact-info-item" key={label}>
                         <div className="icon">

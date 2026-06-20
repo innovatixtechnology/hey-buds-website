@@ -6,6 +6,8 @@ import { blogs, faqs, features, navLinks, pagesMenu, plans, services, steps } fr
 import { useEntryAnimations } from '../hooks/use-entry-animations';
 import { ArrowIcon, Logo, SubTitle, asset } from './widgets';
 
+const heybudsInstagramUrl = 'https://www.instagram.com/heybuds.ai';
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
@@ -488,7 +490,7 @@ export default function Home() {
                 <div className="footer-contact-bar__content">
                   <h2 className="h6 label">Call</h2>
                   <a href="tel:+919763410681" className="value">
-                    9763410681
+                    +91 97634 10681
                   </a>
                 </div>
               </div>
@@ -509,7 +511,7 @@ export default function Home() {
                 </div>
                 <div className="footer-contact-bar__content">
                   <h2 className="h6 label">Our Location</h2>
-                  <span className="value">Pune</span>
+                  <span className="value">Pune, India</span>
                 </div>
               </div>
             </div>
@@ -538,7 +540,7 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" aria-label="Instagram">
+                  <a href={heybudsInstagramUrl} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                     <i className="fa-brands fa-instagram" />
                   </a>
                 </li>
@@ -629,7 +631,7 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <a href="#" aria-label="Instagram">
+                <a href={heybudsInstagramUrl} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                   <i className="fab fa-instagram" />
                 </a>
               </li>
