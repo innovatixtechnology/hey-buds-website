@@ -938,6 +938,49 @@ export function FaqTemplatePage() {
 
 export function ContactTemplatePage() {
   const businessTypes = ['Restaurants & Cafes', 'Clinics & Healthcare Providers', 'Educational Institutions', 'Real Estate Agencies', 'Service Businesses', 'E-commerce Stores', 'Professional Consultants'];
+  const [contactStatus, setContactStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [contactMessage, setContactMessage] = useState('');
+
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      setContactStatus('error');
+      setContactMessage('Form is not configured yet. Please add the Web3Forms access key.');
+      return;
+    }
+
+    setContactStatus('submitting');
+    setContactMessage('');
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    formData.append('access_key', accessKey);
+    formData.append('subject', 'New Hey Buds Contact Form Submission');
+    formData.append('from_name', 'Hey Buds Website');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+      const result = (await response.json()) as { success?: boolean; message?: string };
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to submit the form.');
+      }
+
+      form.reset();
+      setContactStatus('success');
+      setContactMessage('Thanks. Your message has been sent successfully.');
+    } catch (error) {
+      setContactStatus('error');
+      setContactMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.');
+    }
+  }
 
   return (
     <TemplatePageShell>
@@ -971,7 +1014,8 @@ export function ContactTemplatePage() {
               <div className="col-lg-5">
                 <div className="rts-contact-form-area">
                   <h2 className="title">Contact Us:</h2>
-                  <form className="contact-form" onSubmit={(event: FormEvent<HTMLFormElement>) => event.preventDefault()}>
+                  <form className="contact-form" onSubmit={handleContactSubmit}>
+                    <input type="checkbox" name="botcheck" className="d-none" tabIndex={-1} autoComplete="off" />
                     <div className="single-input-wrapper input-with-icon">
                       <span className="icon">
                         <img src={asset('images/icon/user.svg')} alt="" />
@@ -1011,10 +1055,12 @@ export function ContactTemplatePage() {
                       </span>
                       <textarea name="message" placeholder="Message" required />
                     </div>
-                    <button type="submit" className="rts-btn btn-primary">
-                      Get In Touch
+                    <button type="submit" className="rts-btn btn-primary" disabled={contactStatus === 'submitting'}>
+                      {contactStatus === 'submitting' ? 'Sending...' : 'Get In Touch'}
                     </button>
-                    <p id="form-messages" />
+                    <p id="form-messages" role="status" aria-live="polite" className={contactStatus === 'error' ? 'text-danger' : 'text-success'}>
+                      {contactMessage}
+                    </p>
                   </form>
                 </div>
               </div>
@@ -1022,13 +1068,6 @@ export function ContactTemplatePage() {
           </div>
         </div>
       </section>
-      <div className="rts-map-area rts-section-gapBottom">
-        <div className="container">
-          <div className="contact-map-area-fluid">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14881.10813512346!2d92.05130130003461!3d21.28584316293776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1761018831728!5m2!1sen!2sbd" width="600" height="600" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="HeyBuds location map" />
-          </div>
-        </div>
-      </div>
     </TemplatePageShell>
   );
 }
