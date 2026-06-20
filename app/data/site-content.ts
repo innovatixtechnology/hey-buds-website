@@ -1,7 +1,7 @@
 export const homeMenu = [
   { label: 'Artificial Intelligence', href: '/' },
   { label: 'AI Agency', href: '/' },
-  { label: 'AI Chatbot', href: '/' },
+  { label: 'AI Employee', href: '/' },
   { label: 'Neural Network', href: '/' },
   { label: 'AI SaaS', href: '/' },
   { label: 'Machine Learning', href: '/' },
@@ -48,7 +48,7 @@ export const services = [
     width: 364,
   },
   {
-    title: 'Custom Chatbot Development',
+    title: 'Custom AI Employee Development',
     desc: 'Optimize with intelligent automation that saves time and reduces costs.',
     image: 'service/05.webp',
     width: 355,
@@ -70,7 +70,7 @@ export const features = [
   },
   {
     title: 'AI Learning & Improvement',
-    desc: 'Our chatbots continuously learn from interactions to improve responses and provide smarter solutions over time.',
+    desc: 'Our AI employees continuously learn from interactions to improve responses and provide smarter solutions over time.',
   },
   {
     title: '24/7 Customer Support',
@@ -91,7 +91,7 @@ export const plans = [
     highlighted: false,
     shape: 'shape-01.svg',
     checks: 'check.svg',
-    features: ['1 AI Employee', 'Website Chatbot', 'Train on PDFs & Website', 'Lead Capture'],
+    features: ['1 AI Employee', 'Website AI Employee', 'Train on PDFs & Website', 'Lead Capture'],
   },
   {
     name: 'PROFESSIONAL',
@@ -200,7 +200,7 @@ export const blogs = [
       {
         heading: 'What an AI employee should actually do',
         body:
-          'The useful version is not a chatbot that answers everything with long paragraphs. It should qualify a lead, collect the right details, book or request an appointment, answer pricing and availability questions, and create a clean handoff for the team. If the customer is confused, angry, or asking something sensitive, the AI should escalate instead of pretending.',
+          'The useful version is not an AI employee that answers everything with long paragraphs. It should qualify a lead, collect the right details, book or request an appointment, answer pricing and availability questions, and create a clean handoff for the team. If the customer is confused, angry, or asking something sensitive, the AI should escalate instead of pretending.',
       },
       {
         heading: 'Why 2026 changes the expectation',

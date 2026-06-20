@@ -175,7 +175,7 @@ export default function Home() {
                       <div className="content-area">
                         <h3 className="title">Customer Support Automation</h3>
                         <p className="desc">
-                          Reduce response time and provide instant solutions 24/7. Our AI chatbots handle FAQs, complaints, and service can focus on complex cases.
+                          Reduce response time and provide instant solutions 24/7. Our AI employees handle FAQs, complaints, and service can focus on complex cases.
                         </p>
                       </div>
                     </div>
@@ -235,7 +235,7 @@ export default function Home() {
                       <span className="gradient-text">Support Customers </span>On Multiple Channels
                     </h2>
                   </div>
-                  <p className="desc">Our chatbots easily integrate with websites, apps, social media, and CRMs. No complicated setup, just smooth and efficient automation for your business.</p>
+                  <p className="desc">Our AI employees easily integrate with websites, apps, social media, and CRMs. No complicated setup, just smooth and efficient automation for your business.</p>
                   <a href="#pricing" className="rts-btn border-btn">
                     Start Free Trial
                     <ArrowIcon white />
@@ -525,17 +525,17 @@ export default function Home() {
               <p className="desc">Hey Buds helps businesses deploy AI Employees that answer questions, capture leads, automate conversations, and support customers 24/7 across websites, WhatsApp, and digital channels.</p>
               <ul className="social-area">
                 <li>
-                  <a href="#" aria-label="Facebook">
+                  <a href="#" aria-label="Facebook" onClick={(event) => event.preventDefault()}>
                     <i className="fa-brands fa-facebook-f" />
                   </a>
                 </li>
                 <li>
-                  <a href="#" aria-label="Twitter">
+                  <a href="#" aria-label="Twitter" onClick={(event) => event.preventDefault()}>
                     <i className="fa-brands fa-twitter" />
                   </a>
                 </li>
                 <li>
-                  <a href="#" aria-label="LinkedIn">
+                  <a href="#" aria-label="LinkedIn" onClick={(event) => event.preventDefault()}>
                     <i className="fa-brands fa-linkedin" />
                   </a>
                 </li>
@@ -621,12 +621,12 @@ export default function Home() {
           <div className="follow-us">
             <ul>
               <li>
-                <a href="#" aria-label="Facebook">
+                <a href="#" aria-label="Facebook" onClick={(event) => event.preventDefault()}>
                   <i className="fab fa-facebook-f" />
                 </a>
               </li>
               <li>
-                <a href="#" aria-label="Twitter">
+                <a href="#" aria-label="Twitter" onClick={(event) => event.preventDefault()}>
                   <i className="fab fa-twitter" />
                 </a>
               </li>
@@ -636,7 +636,7 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <a href="#" aria-label="LinkedIn">
+                <a href="#" aria-label="LinkedIn" onClick={(event) => event.preventDefault()}>
                   <i className="fa-brands fa-linkedin-in" />
                 </a>
               </li>

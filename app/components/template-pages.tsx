@@ -210,9 +210,15 @@ function Footer() {
                 { icon: 'fa-instagram', href: heybudsInstagramUrl, label: 'Instagram' },
               ].map((social) => (
                 <li key={social.icon}>
-                  <a href={social.href} aria-label={social.label} target={social.href === '#' ? undefined : '_blank'} rel={social.href === '#' ? undefined : 'noopener noreferrer'}>
-                    <i className={`fa-brands ${social.icon}`} />
-                  </a>
+                  {social.href === '#' ? (
+                    <a href="#" aria-label={social.label} onClick={(event) => event.preventDefault()}>
+                      <i className={`fa-brands ${social.icon}`} />
+                    </a>
+                  ) : (
+                    <a href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer">
+                      <i className={`fa-brands ${social.icon}`} />
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -468,7 +474,7 @@ export function ServiceTemplatePage() {
                 <div className="left-content-area">
                   {[
                     ['Multi-Language Communication', 'Break language barriers with AI-powered by our multilingual support.', '04.webp', '364'],
-                    ['Custom Chatbot Development', 'Optimize with intelligent automation that saves time and reduces costs.', '05.webp', '355'],
+                    ['Custom AI Employee Development', 'Optimize with intelligent automation that saves time and reduces costs.', '05.webp', '355'],
                   ].map(([title, desc, image, width]) => (
                     <div className="service-wrapper2" key={title}>
                       <div className="content-area">
@@ -490,7 +496,7 @@ export function ServiceTemplatePage() {
                     </div>
                     <div className="content-area">
                       <h3 className="title">Customer Support Automation</h3>
-                      <p className="desc">Reduce response time and provide instant solutions 24/7. Our AI chatbots handle FAQs, complaints, and service can focus on complex cases.</p>
+                      <p className="desc">Reduce response time and provide instant solutions 24/7. Our AI employees handle FAQs, complaints, and service can focus on complex cases.</p>
                     </div>
                   </div>
                 </div>

@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'HeyBuds | Artificial Intelligence & Technology',
-  description: 'HeyBuds AI chatbot landing page.',
+  description: 'HeyBuds AI Employee landing page.',
   icons: {
     icon: '/assets/images/heybuds/favicon.png',
     apple: '/assets/images/heybuds/favicon.png',
