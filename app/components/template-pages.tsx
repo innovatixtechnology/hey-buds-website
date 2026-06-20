@@ -4,6 +4,79 @@ import { CSSProperties, FormEvent, ReactNode, useState } from 'react';
 import { blogs, faqs, navLinks, pagesMenu, steps } from '../data/site-content';
 import { ArrowIcon, Logo, asset } from './widgets';
 
+type TeamSocial = {
+  icon: string;
+  href: string;
+  label: string;
+};
+
+type TeamMember = {
+  image: string;
+  name: string;
+  role: string;
+  bio: string;
+  backName?: string;
+  backRole?: string;
+  socials?: TeamSocial[];
+};
+
+const teamMembers: TeamMember[] = [
+  {
+    image: 'yash.png',
+    name: 'Yash Choudhary',
+    role: 'Founder',
+    bio: 'Driving the vision behind Hey Buds and building AI employees that help businesses automate conversations, capture opportunities, and scale intelligently.',
+    socials: [
+      {
+        icon: 'fa-linkedin-in',
+        href: 'https://www.linkedin.com/in/yash-choudhary12/',
+        label: 'Yash Choudhary on LinkedIn',
+      },
+      {
+        icon: 'fa-instagram',
+        href: 'https://www.instagram.com/yash_ryder/',
+        label: 'Yash Choudhary on Instagram',
+      },
+    ],
+  },
+  {
+    image: 'aashish.png',
+    name: 'Aashish Kumar',
+    role: 'Co-Founder',
+    bio: 'Building scalable products and seamless user experiences that make AI accessible, reliable, and easy to deploy.',
+    socials: [
+      {
+        icon: 'fa-linkedin-in',
+        href: 'https://www.linkedin.com/in/aashish-kumar-iiit/',
+        label: 'Aashish Kumar on LinkedIn',
+      },
+      {
+        icon: 'fa-instagram',
+        href: 'https://www.instagram.com/aashishkumar_/',
+        label: 'Aashish Kumar on Instagram',
+      },
+    ],
+  },
+  {
+    image: 'vishal.png',
+    name: 'Vishal Patil',
+    role: 'Co-Founder',
+    bio: 'Leading the development of AI systems, infrastructure, and intelligent automation that power the Hey Buds platform.',
+    socials: [
+      {
+        icon: 'fa-linkedin-in',
+        href: 'https://www.linkedin.com/in/vishal-g-patil/',
+        label: 'Vishal Patil on LinkedIn',
+      },
+      {
+        icon: 'fa-instagram',
+        href: 'https://www.instagram.com/patilvishal54/',
+        label: 'Vishal Patil on Instagram',
+      },
+    ],
+  },
+];
+
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -226,7 +299,25 @@ function Marquee() {
   );
 }
 
-function TeamCard({ image, name, role }: { image: string; name: string; role: string }) {
+function TeamSocialLinks({ socials = [] }: { socials?: TeamSocial[] }) {
+  if (!socials.length) {
+    return null;
+  }
+
+  return (
+    <ul className="team-card__social">
+      {socials.map((social) => (
+        <li key={social.href}>
+          <a href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer">
+            <i className={`fa-brands ${social.icon}`} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function TeamCard({ image, name, role, bio, socials }: TeamMember) {
   return (
     <div className="team-wrapper">
       <div className="team-card">
@@ -240,16 +331,8 @@ function TeamCard({ image, name, role }: { image: string; name: string; role: st
           </div>
         </div>
         <div className="team-card__back">
-          <p className="team-card__bio">Built a multilingual AI chatbot that increased customer support efficiency by 65% and boosted sales conversions.</p>
-          <ul className="team-card__social">
-            {['fa-facebook-f', 'fa-twitter', 'fa-linkedin-in', 'fa-instagram'].map((icon) => (
-              <li key={icon}>
-                <a href="#" aria-label={icon}>
-                  <i className={`fa-brands ${icon}`} />
-                </a>
-              </li>
-            ))}
-          </ul>
+          <p className="team-card__bio">{bio}</p>
+          <TeamSocialLinks socials={socials} />
           <div className="team-card__info">
             <h4 className="team-card__name">{name}</h4>
             <span className="team-card__role">{role}</span>
@@ -260,7 +343,7 @@ function TeamCard({ image, name, role }: { image: string; name: string; role: st
   );
 }
 
-function TeamCardTwo({ image, name, role, backName = name, backRole = role }: { image: string; name: string; role: string; backName?: string; backRole?: string }) {
+function TeamCardTwo({ image, name, role, bio, backName = name, backRole = role, socials }: TeamMember) {
   return (
     <div className="team-wrapper2">
       <div className="team-card">
@@ -274,16 +357,8 @@ function TeamCardTwo({ image, name, role, backName = name, backRole = role }: { 
           </div>
         </div>
         <div className="team-card__back">
-          <p className="team-card__bio">Built a multilingual AI chatbot that increased customer support efficiency by 65% and boosted sales conversions.</p>
-          <ul className="team-card__social">
-            {['fa-facebook-f', 'fa-twitter', 'fa-linkedin-in', 'fa-instagram'].map((icon) => (
-              <li key={icon}>
-                <a href="#" aria-label={icon}>
-                  <i className={`fa-brands ${icon}`} />
-                </a>
-              </li>
-            ))}
-          </ul>
+          <p className="team-card__bio">{bio}</p>
+          <TeamSocialLinks socials={socials} />
           <div className="team-card__info">
             <h2 className="team-card__name">{backName}</h2>
             <span className="team-card__role">{backRole}</span>
@@ -629,13 +704,9 @@ export function AboutTemplatePage() {
           </div>
           <div className="section-inner mt--60">
             <div className="row g-5">
-              {[
-                ['yash.png', 'Yash Choudhary', 'Founder'],
-                ['aashish.png', 'Aashish Kumar', 'Co-Founder'],
-                ['vishal.png', 'Vishal Patil', 'Co-Founder'],
-              ].map(([image, name, role]) => (
-                <div className="col-xl-4 col-lg-6 col-md-6" key={`${name}-${role}`}>
-                  <TeamCard image={image} name={name} role={role} />
+              {teamMembers.map((member) => (
+                <div className="col-xl-4 col-lg-6 col-md-6" key={`${member.name}-${member.role}`}>
+                  <TeamCard {...member} />
                 </div>
               ))}
             </div>
@@ -647,21 +718,15 @@ export function AboutTemplatePage() {
 }
 
 export function TeamTemplatePage() {
-  const teamMembers = [
-    ['yash.png', 'Yash Choudhary', 'Founder'],
-    ['aashish.png', 'Aashish Kumar', 'Co-Founder'],
-    ['vishal.png', 'Vishal Patil', 'Co-Founder'],
-  ];
-
   return (
     <TemplatePageShell>
       <Breadcrumb title="Our Team" current="Our Team" bg="bg-01.webp" />
       <section className="rts-team-area inner2 rts-section-gap">
         <div className="section-inner mt--60">
           <div className="row g-40">
-            {teamMembers.map(([image, name, role, backName, backRole]) => (
-                <div className="col-xxl-4 col-md-6" key={`${name}-${role}`}>
-                <TeamCardTwo image={image} name={name} role={role} backName={backName} backRole={backRole} />
+            {teamMembers.map((member) => (
+              <div className="col-xxl-4 col-md-6" key={`${member.name}-${member.role}`}>
+                <TeamCardTwo {...member} />
               </div>
             ))}
           </div>
