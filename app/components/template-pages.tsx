@@ -630,9 +630,9 @@ export function AboutTemplatePage() {
           <div className="section-inner mt--60">
             <div className="row g-5">
               {[
-                ['01.webp', 'Yash Choudhary', 'Founder'],
-                ['02.webp', 'Aashish Kumar', 'Co-Founder'],
-                ['03.webp', 'Vishal Patil', 'Co-Founder'],
+                ['yash.png', 'Yash Choudhary', 'Founder'],
+                ['aashish.png', 'Aashish Kumar', 'Co-Founder'],
+                ['vishal.png', 'Vishal Patil', 'Co-Founder'],
               ].map(([image, name, role]) => (
                 <div className="col-xl-4 col-lg-6 col-md-6" key={`${name}-${role}`}>
                   <TeamCard image={image} name={name} role={role} />
@@ -648,9 +648,9 @@ export function AboutTemplatePage() {
 
 export function TeamTemplatePage() {
   const teamMembers = [
-    ['01.webp', 'Yash Choudhary', 'Founder'],
-    ['02.webp', 'Aashish Kumar', 'Co-Founder'],
-    ['03.webp', 'Vishal Patil', 'Co-Founder'],
+    ['yash.png', 'Yash Choudhary', 'Founder'],
+    ['aashish.png', 'Aashish Kumar', 'Co-Founder'],
+    ['vishal.png', 'Vishal Patil', 'Co-Founder'],
   ];
 
   return (
