@@ -91,7 +91,7 @@ export const plans = [
     highlighted: false,
     shape: 'shape-01.svg',
     checks: 'check.svg',
-    features: ['1 AI Employee', 'Website AI Employee', 'Train on PDFs & Website', 'Lead Capture'],
+    features: ['AI Employee for Your Website', 'Trained on Business Knowledge', 'Lead Capture & Qualification', 'Unlimited Conversations'],
   },
   {
     name: 'PROFESSIONAL',
@@ -101,7 +101,7 @@ export const plans = [
     highlighted: true,
     shape: 'shape-02.svg',
     checks: 'check-w.svg',
-    features: ['Everything in Starter', 'WhatsApp Integration', 'Appointment Booking', 'Analytics Dashboard'],
+    features: ['Everything in Starter', 'WhatsApp Integration', 'Appointment & Booking Management', 'Advanced Analytics'],
   },
   {
     name: 'ENTERPRISE',
@@ -184,7 +184,7 @@ export const blogs = [
   {
     slug: 'why-every-business-needs-an-ai-employee-2026',
     image: '03.webp',
-    date: '10, March, 2026',
+    date: '12, March, 2026',
     readTime: '5 min read',
     tag: 'AI Employees',
     title: 'Why Every Business Needs an AI Employee in 2026',
@@ -213,7 +213,7 @@ export const blogs = [
   {
     slug: 'how-ai-automation-helps-businesses-grow-faster',
     image: '04.webp',
-    date: '10, March, 2026',
+    date: '27, February, 2026',
     readTime: '4 min read',
     tag: 'Automation',
     title: 'How AI Automation Helps Businesses Grow Faster',
@@ -242,7 +242,7 @@ export const blogs = [
   {
     slug: 'complete-guide-to-whatsapp-automation',
     image: '05.webp',
-    date: '10, March, 2026',
+    date: '21, January, 2026',
     readTime: '6 min read',
     tag: 'WhatsApp AI',
     title: 'The Complete Guide to WhatsApp Automation',

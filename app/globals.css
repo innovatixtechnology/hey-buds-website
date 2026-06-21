@@ -23,7 +23,27 @@ html {
 }
 
 .footer-heybuds-logo {
-  margin-bottom: 18px;
+  margin-bottom: 0;
+}
+
+.rts-footer-area-one .single-footer-widget-one.logo-area .logo {
+  display: block;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.rts-footer-area-one .single-footer-widget-one.logo-area .logo + .desc,
+.rts-footer-area-one .single-footer-widget-one.logo-area .desc {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.rts-footer-area-one .single-footer-widget-one.logo-area .logo .heybuds-wordmark {
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0 !important;
 }
 
 .breadcrumb-logo .heybuds-logo {

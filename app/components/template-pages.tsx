@@ -200,7 +200,7 @@ function Footer() {
       <div className="container">
         <div className="footer-inner">
           <div className="single-footer-widget-one logo-area">
-            <Logo footer />
+            <Logo footer src="images/heybuds/Client Logo - INNO.png" alt="INNO Logo" />
             <p className="desc">Hey Buds helps businesses deploy AI Employees that answer questions, capture leads, automate conversations, and support customers 24/7 across websites, WhatsApp, and digital channels.</p>
             <ul className="social-area">
               {[

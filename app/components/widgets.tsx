@@ -1,9 +1,9 @@
 export const asset = (path: string) => `/assets/${path}`;
 
-export function Logo({ footer = false }: { footer?: boolean }) {
+export function Logo({ footer = false, src = 'images/heybuds/logo-wordmark.png', alt = 'HeyBuds' }: { footer?: boolean; src?: string; alt?: string }) {
   return (
-    <a href="/" className={`logo heybuds-logo${footer ? ' footer-heybuds-logo' : ''}`} aria-label="HeyBuds">
-      <img className="heybuds-wordmark" src={asset('images/heybuds/logo-wordmark.png')} alt="HeyBuds" />
+    <a href="/" className={`logo heybuds-logo${footer ? ' footer-heybuds-logo' : ''}`} aria-label={alt}>
+      <img className="heybuds-wordmark" src={asset(src)} alt={alt} />
     </a>
   );
 }

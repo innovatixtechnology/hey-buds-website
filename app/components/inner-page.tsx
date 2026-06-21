@@ -120,7 +120,7 @@ export default function InnerPage({ title, eyebrow = 'HeyBuds', description = 'H
         <div className="container">
           <div className="footer-inner compact-footer">
             <div className="single-footer-widget-one logo-area">
-              <Logo footer />
+              <Logo footer src="images/heybuds/Client Logo - INNO.png" alt="INNO Logo" />
               <p className="desc">
                 Hey Buds helps businesses deploy AI Employees that answer questions, capture leads, automate conversations, and support customers 24/7 across websites, WhatsApp, and digital channels.
               </p>

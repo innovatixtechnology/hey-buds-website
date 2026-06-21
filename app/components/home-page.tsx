@@ -93,9 +93,6 @@ export default function Home() {
                       <li>
                         <img src={asset('images/icon/check-n.svg')} alt="" /> 10-Day Free Trial
                       </li>
-                      <li>
-                        <img src={asset('images/icon/check-n.svg')} alt="" /> No Credit Card
-                      </li>
                     </ul>
                     <div className="section-title-area">
                       <h1 className="section-title">
@@ -329,7 +326,7 @@ export default function Home() {
           <div className="container">
             <div className="section-title-area center-style">
               {/* <SubTitle>Industries</SubTitle> */}
-              <h2 className="section-title animated-title mb-0">
+              <h2 className="section-title animated-title mb-0 mt--60">
                 Industries <span className="gradient-text">We Serve</span>
               </h2>
             </div>
@@ -338,10 +335,6 @@ export default function Home() {
                 <div className="col-lg-6">
                   <div className="left-image-area ext-images">
                     <img src={asset('images/testimonials/01.webp')} alt="HeyBuds customer" />
-                    <div className="counter-area">
-                      <h2 className="title">5★</h2>
-                      <p className="text">Trusted Across Multiple Industries</p>
-                    </div>
                   </div>
                 </div>
                 <div className="col-lg-6">
@@ -457,7 +450,7 @@ export default function Home() {
                     <article className="blog-wrapper2 white">
                       <div className="blog-card">
                         <div className="blog-card__thumb">
-                          <span className="blog-card__date">10, March, 2026</span>
+                          <span className="blog-card__date">21, June, 2026</span>
                           <a href={`/blog/${blog.slug}`}>
                             <img src={asset(`images/blog/${blog.image}`)} alt={blog.title} />
                           </a>
@@ -521,7 +514,7 @@ export default function Home() {
         <div className="container">
           <div className="footer-inner">
             <div className="single-footer-widget-one logo-area">
-              <Logo footer />
+              <Logo footer src="images/heybuds/Client Logo - INNO.png" alt="INNO Logo" />
               <p className="desc">Hey Buds helps businesses deploy AI Employees that answer questions, capture leads, automate conversations, and support customers 24/7 across websites, WhatsApp, and digital channels.</p>
               <ul className="social-area">
                 <li>
